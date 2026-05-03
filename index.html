@@ -460,18 +460,34 @@ footer {
 
   <div class="audio-grid" id="audioGrid">
 
-    <div class="audio-item" id="meditationItem">
-      <div class="play-btn" onclick="toggleRealAudio()">
+    <div class="audio-item" id="acItem" style="align-items:center;">
+      <div class="play-btn" onclick="toggleAcAudio()">
         <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       </div>
+      <img src="thumb-ac-gold.png" alt="Assassin's Creed Gold" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
       <div class="audio-info">
-        <div class="audio-title">Meditations-Begleitung</div>
-        <div class="audio-meta">Entspannend · Sonorig · Ruhige Führung</div>
+        <div class="audio-title">Assassin's Creed: Gold – Gavin Banks</div>
+        <div class="audio-meta">Audible Original · Ubisoft × Audible · 2020</div>
       </div>
-      <div class="waveform" id="wf1"></div>
-      <div class="audio-duration" id="meditationDur">–:––</div>
-      <audio id="meditationAudio" src="meditation.wav" preload="metadata"></audio>
+      <div class="waveform" id="wf_ac"></div>
+      <div class="audio-duration" id="acDur">–:––</div>
+      <audio id="acAudio" src="hoerprobe-assassinscreed.mp3" preload="metadata"></audio>
+    </div>
+
+    <div class="audio-item" id="werbungItem" style="align-items:center;">
+      <div class="play-btn" onclick="toggleWerbungAudio()">
+        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </div>
+      <img src="thumb-werbung.png" alt="Werbung Demo" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
+      <div class="audio-info">
+        <div class="audio-title">Werbung – Demo Reel</div>
+        <div class="audio-meta">Coca-Cola · Fanta · Happy Hippo · Mayr Bau</div>
+      </div>
+      <div class="waveform" id="wf3"></div>
+      <div class="audio-duration" id="werbungDur">–:––</div>
+      <audio id="werbungAudio" src="hoerprobe-werbung.mp3" preload="metadata"></audio>
     </div>
 
     <div class="audio-item" id="hoerbuchItem" style="align-items:center;">
@@ -479,7 +495,7 @@ footer {
         <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       </div>
-      <img src="thumb-argon-weihnacht.png" alt="Opa kriegt nichts mehr zu trinken" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
+      <img src="thumb-argon-weihnacht.png" alt="Der innere Klaus" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
       <div class="audio-info">
         <div class="audio-title">Der innere Klaus – Teaser</div>
         <div class="audio-meta">10 Jahre Argon Hörbuch · mit Simon Jäger &amp; Oliver Rohrbeck</div>
@@ -489,58 +505,49 @@ footer {
       <audio id="hoerbuchAudio" src="hoerprobe-hoerbuch.mp3" preload="metadata"></audio>
     </div>
 
-    <div class="audio-item" onclick="togglePlay(this)" style="align-items:center;">
-      <div class="play-btn">
+    <div class="audio-item" id="animeItem" style="align-items:center;">
+      <div class="play-btn" onclick="toggleAnimeAudio()">
+        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </div>
+      <img src="taiga-thumbnail.png" alt="Taiga Kagami" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
+      <div class="audio-info">
+        <div class="audio-title">Kuroko's Basketball – Taiga Kagami</div>
+        <div class="audio-meta">Anime-Synchronisation · ProSieben Maxx</div>
+      </div>
+      <div class="waveform" id="wf4"></div>
+      <div class="audio-duration" id="animeDur">–:––</div>
+      <audio id="animeAudio" src="hoerprobe-anime.mp3" preload="metadata"></audio>
+    </div>
+
+    <div class="audio-item" id="meditationItem" style="align-items:center;">
+      <div class="play-btn" onclick="toggleRealAudio()">
+        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </div>
+      <img src="thumb-meditation.png" alt="Meditation" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
+      <div class="audio-info">
+        <div class="audio-title">Meditations-Begleitung</div>
+        <div class="audio-meta">Entspannend · Sonorig · Ruhige Führung</div>
+      </div>
+      <div class="waveform" id="wf1"></div>
+      <div class="audio-duration" id="meditationDur">–:––</div>
+      <audio id="meditationAudio" src="meditation.wav" preload="metadata"></audio>
+    </div>
+
+    <div class="audio-item" id="vdItem" style="align-items:center;">
+      <div class="play-btn" onclick="toggleVdAudio()">
         <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       </div>
       <img src="thumb-vampire-diaries.png" alt="The Vampire Diaries" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
       <div class="audio-info">
         <div class="audio-title">The Vampire Diaries – Alle 5 Bände</div>
-        <div class="audio-meta">Solo-Lesung · cbj audio · Random House · ca. 30h Gesamtlaufzeit</div>
+        <div class="audio-meta">Solo-Lesung · cbj audio · Random House</div>
       </div>
       <div class="waveform" id="wf6"></div>
-      <div class="audio-duration">5 Bände</div>
-    </div>
-
-    <div class="audio-item" onclick="togglePlay(this)" style="align-items:center;">
-      <div class="play-btn">
-        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      </div>
-      <img src="thumb-ac-gold.png" alt="Assassin's Creed Gold" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
-      <div class="audio-info">
-        <div class="audio-title">Assassin's Creed: Gold – Gavin Banks</div>
-        <div class="audio-meta">Audible Original · Ubisoft × Audible · 2020 · 4h 40min</div>
-      </div>
-      <div class="waveform" id="wf5"></div>
-      <div class="audio-duration">Hörspiel</div>
-    </div>
-
-    <div class="audio-item" onclick="togglePlay(this)">
-      <div class="play-btn">
-        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      </div>
-      <div class="audio-info">
-        <div class="audio-title">Werbung / Imagefilm</div>
-        <div class="audio-meta">Klar, sympathisch, vertrauenswürdig</div>
-      </div>
-      <div class="waveform" id="wf3"></div>
-      <div class="audio-duration">0:45</div>
-    </div>
-
-    <div class="audio-item" onclick="togglePlay(this)">
-      <div class="play-btn">
-        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      </div>
-      <div class="audio-info">
-        <div class="audio-title">Anime / Games</div>
-        <div class="audio-meta">Beyblade Burst · Ultraman · Date a Live IV</div>
-      </div>
-      <div class="waveform" id="wf4"></div>
-      <div class="audio-duration">1:28</div>
+      <div class="audio-duration" id="vdDur">–:––</div>
+      <audio id="vdAudio" src="hoerprobe-vampirediaries.mp3" preload="metadata"></audio>
     </div>
 
   </div>
@@ -1001,7 +1008,7 @@ function buildWaveform(id) {
     el.appendChild(bar);
   });
 }
-['wf1','wf2','wf3','wf4','wf5','wf6'].forEach(buildWaveform);
+['wf_ac','wf1','wf2','wf3','wf4','wf6'].forEach(buildWaveform);
 
 // ── AUDIO PLAYER (simulated) ──
 let currentPlaying = null;
@@ -1071,7 +1078,7 @@ meditationAudio.addEventListener('loadedmetadata', () => {
 function toggleRealAudio() {
   if (!meditationAudio) return;
   if (meditationAudio.paused) {
-    if (hoerbuchAudio) { hoerbuchAudio.pause(); hoerbuchItem.classList.remove('playing'); }
+    stopAll();
     meditationAudio.play().catch(e => console.log('Audio error:', e));
     meditationItem.classList.add('playing');
   } else {
@@ -1085,19 +1092,144 @@ const hoerbuchAudio = document.getElementById('hoerbuchAudio');
 const hoerbuchItem  = document.getElementById('hoerbuchItem');
 
 if (hoerbuchAudio) {
-  hoerbuchAudio.addEventListener('loadedmetadata', () => {
-    const m = Math.floor(hoerbuchAudio.duration / 60);
-    const s = Math.floor(hoerbuchAudio.duration % 60).toString().padStart(2, '0');
-    document.getElementById('hoerbuchDur').textContent = m + ':' + s;
-  });
+  function updateHoerbuchDur() {
+    if (hoerbuchAudio.duration && !isNaN(hoerbuchAudio.duration)) {
+      const m = Math.floor(hoerbuchAudio.duration / 60);
+      const s = Math.floor(hoerbuchAudio.duration % 60).toString().padStart(2, '0');
+      document.getElementById('hoerbuchDur').textContent = m + ':' + s;
+    }
+  }
+  hoerbuchAudio.addEventListener('loadedmetadata', updateHoerbuchDur);
+  hoerbuchAudio.addEventListener('durationchange', updateHoerbuchDur);
+  hoerbuchAudio.addEventListener('canplay', updateHoerbuchDur);
   hoerbuchAudio.addEventListener('ended', () => hoerbuchItem.classList.remove('playing'));
+}
+
+const animeAudio = document.getElementById('animeAudio');
+const animeItem  = document.getElementById('animeItem');
+
+if (animeAudio) {
+  function updateAnimeDur() {
+    if (animeAudio.duration && !isNaN(animeAudio.duration)) {
+      const m = Math.floor(animeAudio.duration / 60);
+      const s = Math.floor(animeAudio.duration % 60).toString().padStart(2, '0');
+      document.getElementById('animeDur').textContent = m + ':' + s;
+    }
+  }
+  animeAudio.addEventListener('loadedmetadata', updateAnimeDur);
+  animeAudio.addEventListener('durationchange', updateAnimeDur);
+  animeAudio.addEventListener('canplay', updateAnimeDur);
+  animeAudio.addEventListener('ended', () => animeItem.classList.remove('playing'));
+}
+
+const werbungAudio = document.getElementById('werbungAudio');
+const werbungItem  = document.getElementById('werbungItem');
+
+if (werbungAudio) {
+  function updateWerbungDur() {
+    if (werbungAudio.duration && !isNaN(werbungAudio.duration)) {
+      const m = Math.floor(werbungAudio.duration / 60);
+      const s = Math.floor(werbungAudio.duration % 60).toString().padStart(2, '0');
+      document.getElementById('werbungDur').textContent = m + ':' + s;
+    }
+  }
+  werbungAudio.addEventListener('loadedmetadata', updateWerbungDur);
+  werbungAudio.addEventListener('durationchange', updateWerbungDur);
+  werbungAudio.addEventListener('canplay', updateWerbungDur);
+  werbungAudio.addEventListener('ended', () => werbungItem.classList.remove('playing'));
+}
+
+const acAudio = document.getElementById('acAudio');
+const acItem  = document.getElementById('acItem');
+
+if (acAudio) {
+  function updateAcDur() {
+    if (acAudio.duration && !isNaN(acAudio.duration)) {
+      const m = Math.floor(acAudio.duration / 60);
+      const s = Math.floor(acAudio.duration % 60).toString().padStart(2, '0');
+      document.getElementById('acDur').textContent = m + ':' + s;
+    }
+  }
+  acAudio.addEventListener('loadedmetadata', updateAcDur);
+  acAudio.addEventListener('durationchange', updateAcDur);
+  acAudio.addEventListener('canplay', updateAcDur);
+  acAudio.addEventListener('ended', () => acItem.classList.remove('playing'));
+}
+
+function stopAll() {
+  [meditationAudio, hoerbuchAudio, animeAudio, werbungAudio, acAudio, vdAudio].forEach(a => { if(a) a.pause(); });
+  [meditationItem, hoerbuchItem, animeItem, werbungItem, acItem, vdItem].forEach(i => { if(i) i.classList.remove('playing'); });
+}
+
+const vdAudio = document.getElementById('vdAudio');
+const vdItem  = document.getElementById('vdItem');
+
+if (vdAudio) {
+  function updateVdDur() {
+    if (vdAudio.duration && !isNaN(vdAudio.duration)) {
+      const m = Math.floor(vdAudio.duration / 60);
+      const s = Math.floor(vdAudio.duration % 60).toString().padStart(2, '0');
+      document.getElementById('vdDur').textContent = m + ':' + s;
+    }
+  }
+  vdAudio.addEventListener('loadedmetadata', updateVdDur);
+  vdAudio.addEventListener('durationchange', updateVdDur);
+  vdAudio.addEventListener('canplay', updateVdDur);
+  vdAudio.addEventListener('ended', () => vdItem.classList.remove('playing'));
+}
+
+function toggleVdAudio() {
+  if (!vdAudio) return;
+  if (vdAudio.paused) {
+    stopAll();
+    vdAudio.play().catch(e => console.log('Audio error:', e));
+    vdItem.classList.add('playing');
+  } else {
+    vdAudio.pause();
+    vdItem.classList.remove('playing');
+  }
+}
+
+function toggleAcAudio() {
+  if (!acAudio) return;
+  if (acAudio.paused) {
+    stopAll();
+    acAudio.play().catch(e => console.log('Audio error:', e));
+    acItem.classList.add('playing');
+  } else {
+    acAudio.pause();
+    acItem.classList.remove('playing');
+  }
+}
+
+function toggleWerbungAudio() {
+  if (!werbungAudio) return;
+  if (werbungAudio.paused) {
+    stopAll();
+    werbungAudio.play().catch(e => console.log('Audio error:', e));
+    werbungItem.classList.add('playing');
+  } else {
+    werbungAudio.pause();
+    werbungItem.classList.remove('playing');
+  }
+}
+
+function toggleAnimeAudio() {
+  if (!animeAudio) return;
+  if (animeAudio.paused) {
+    stopAll();
+    animeAudio.play().catch(e => console.log('Audio error:', e));
+    animeItem.classList.add('playing');
+  } else {
+    animeAudio.pause();
+    animeItem.classList.remove('playing');
+  }
 }
 
 function toggleRealAudio2() {
   if (!hoerbuchAudio) return;
   if (hoerbuchAudio.paused) {
-    meditationAudio.pause();
-    meditationItem.classList.remove('playing');
+    stopAll();
     hoerbuchAudio.play().catch(e => console.log('Audio error:', e));
     hoerbuchItem.classList.add('playing');
   } else {
