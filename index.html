@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Adam Nümm – Stimme. Bühne. Charakter.</title>
+<title id="pageTitle">Adam Nümm – Stimme. Bühne. Charakter.</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -204,18 +204,13 @@ nav {
 .audio-meta { font-size: 12px; color: var(--muted); }
 
 .waveform {
-  flex: 1; height: 36px;
-  display: flex; align-items: center; gap: 2px;
+  flex: 1; height: 40px;
+  cursor: pointer;
+  position: relative;
 }
-.wf-bar {
-  flex: 1; border-radius: 1px;
-  background: rgba(255,255,255,0.12);
-  height: var(--h);
-  transition: background 0.15s;
+.waveform canvas {
+  width: 100%; height: 100%; display: block;
 }
-.audio-item.playing .wf-bar { background: var(--warm); opacity: 0.6; }
-.audio-item.playing .wf-bar:nth-child(odd) { opacity: 1; animation: wfPulse 0.8s ease-in-out infinite alternate; }
-@keyframes wfPulse { to { opacity: 0.4; } }
 
 .audio-duration { font-size: 13px; color: var(--muted); min-width: 36px; text-align: right; }
 
@@ -406,12 +401,21 @@ footer {
 <nav>
   <a href="#" class="nav-logo">AN</a>
   <ul class="nav-links">
-    <li><a href="#hoerproben">Hörproben</a></li>
+    <li><a href="#hoerproben" data-de="Hörproben" data-en="Samples">Hörproben</a></li>
     <li><a href="#videos">Videos</a></li>
-    <li><a href="#rollen">Rollen</a></li>
-    <li><a href="#ueber">Über mich</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#rollen" data-de="Rollen" data-en="Roles">Rollen</a></li>
+    <li><a href="#ueber" data-de="Über mich" data-en="About">Über mich</a></li>
+    <li><a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
   </ul>
+  <button id="langToggle" onclick="toggleLang()" style="
+    background:none; border:1px solid rgba(200,169,110,0.4); color:var(--warm);
+    font-size:12px; letter-spacing:0.12em; padding:5px 12px; cursor:pointer;
+    border-radius:3px; font-family:'DM Sans',sans-serif; transition:all 0.2s;
+    margin-left:24px;
+  " onmouseover="this.style.borderColor='#c8a96e';this.style.color='#e8c98e'" 
+     onmouseout="this.style.borderColor='rgba(200,169,110,0.4)';this.style.color='var(--warm)'">
+    DE | EN
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -419,25 +423,25 @@ footer {
   <!-- Soundwave bg -->
   <div class="soundwave" id="soundwave"></div>
 
-  <div class="hero-tag">Synchronsprecher · Schauspieler · Berlin</div>
+  <div class="hero-tag" data-de="Synchronsprecher · Schauspieler · Berlin" data-en="Voice Actor · Actor · Berlin">Synchronsprecher · Schauspieler · Berlin</div>
 
   <h1 class="hero-name">
     Adam<br><em>Nümm</em>
   </h1>
 
   <p class="hero-subtitle">
-    Eine Stimme, die Figuren zum Leben erweckt. Über 530 Rollen, von Cobra Kai bis Limitless – und jede mit eigener Seele.
+    <span data-de="Eine Stimme, die Figuren zum Leben erweckt. Über 530 Rollen, von Cobra Kai bis Limitless – und jede mit eigener Seele." data-en="A voice that brings characters to life. Over 530 roles, from Cobra Kai to Limitless – each with its own soul.">Eine Stimme, die Figuren zum Leben erweckt. Über 530 Rollen, von Cobra Kai bis Limitless – und jede mit eigener Seele.</span>
   </p>
 
   <div class="hero-bottom">
     <div class="hero-stats">
       <div>
         <div class="stat-num">530+</div>
-        <div class="stat-label">Sprechrollen</div>
+        <div class="stat-label" data-de="Sprechrollen" data-en="Voice Roles">Sprechrollen</div>
       </div>
       <div>
         <div class="stat-num">15+</div>
-        <div class="stat-label">Jahre Erfahrung</div>
+        <div class="stat-label" data-de="Jahre Erfahrung" data-en="Years Experience">Jahre Erfahrung</div>
       </div>
       <div>
         <div class="stat-num">ARD · ZDF</div>
@@ -445,8 +449,8 @@ footer {
       </div>
     </div>
     <div class="hero-cta">
-      <a href="#hoerproben" class="btn-primary">Hörproben anhören</a>
-      <a href="#kontakt" class="btn-ghost">Booking anfragen</a>
+      <a href="#hoerproben" class="btn-primary" data-de="Hörproben anhören" data-en="Listen to Samples">Hörproben anhören</a>
+      <a href="#kontakt" class="btn-ghost" data-de="Booking anfragen" data-en="Request Booking">Booking anfragen</a>
     </div>
   </div>
 </section>
@@ -455,10 +459,25 @@ footer {
 
 <!-- HÖRPROBEN -->
 <section class="section" id="hoerproben">
-  <div class="section-label">Meine Stimme</div>
-  <h2 class="section-title">Hör<em>proben</em></h2>
+  <div class="section-label" data-de="Meine Stimme" data-en="My Voice">Meine Stimme</div>
+  <h2 class="section-title"><span data-de="Hör" data-en="Audio ">Hör</span><em data-de="proben" data-en="Samples">proben</em></h2>
 
   <div class="audio-grid" id="audioGrid">
+
+    <div class="audio-item" id="daysGoneItem" style="align-items:center;">
+      <div class="play-btn" onclick="toggleDaysGoneAudio()">
+        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </div>
+      <img src="thumb-daysgone.jpg" alt="Days Gone" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
+      <div class="audio-info">
+        <div class="audio-title">Days Gone – Deacon St. John (Main Character)</div>
+        <div class="audio-meta">PlayStation Exclusive · Sony Interactive Entertainment · 2019</div>
+      </div>
+      <div class="waveform" id="wf_dg"><canvas id="cv_dg"></canvas></div>
+      <div class="audio-duration" id="daysGoneDur">–:––</div>
+      <audio id="daysGoneAudio" src="hoerprobe-daysgone.mp3" preload="metadata"></audio>
+    </div>
 
     <div class="audio-item" id="acItem" style="align-items:center;">
       <div class="play-btn" onclick="toggleAcAudio()">
@@ -467,10 +486,10 @@ footer {
       </div>
       <img src="thumb-ac-gold.png" alt="Assassin's Creed Gold" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
       <div class="audio-info">
-        <div class="audio-title">Assassin's Creed: Gold – Gavin Banks</div>
+        <div class="audio-title">Assassin's Creed: Gold – Omar Khalid</div>
         <div class="audio-meta">Audible Original · Ubisoft × Audible · 2020</div>
       </div>
-      <div class="waveform" id="wf_ac"></div>
+      <div class="waveform" id="wf_ac"><canvas id="cv_ac"></canvas></div>
       <div class="audio-duration" id="acDur">–:––</div>
       <audio id="acAudio" src="hoerprobe-assassinscreed.mp3" preload="metadata"></audio>
     </div>
@@ -485,9 +504,24 @@ footer {
         <div class="audio-title">Werbung – Demo Reel</div>
         <div class="audio-meta">Coca-Cola · Fanta · Happy Hippo · Mayr Bau</div>
       </div>
-      <div class="waveform" id="wf3"></div>
+      <div class="waveform" id="wf3"><canvas id="cv_w3"></canvas></div>
       <div class="audio-duration" id="werbungDur">–:––</div>
       <audio id="werbungAudio" src="hoerprobe-werbung.mp3" preload="metadata"></audio>
+    </div>
+
+    <div class="audio-item" id="animeItem" style="align-items:center;">
+      <div class="play-btn" onclick="toggleAnimeAudio()">
+        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </div>
+      <img src="taiga-thumbnail.png" alt="Taiga Kagami" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
+      <div class="audio-info">
+        <div class="audio-title">Kuroko's Basketball – Taiga Kagami (Main Character)</div>
+        <div class="audio-meta" data-de="Anime-Synchronisation · ProSieben Maxx" data-en="Anime Dubbing · ProSieben Maxx">Anime-Synchronisation · ProSieben Maxx</div>
+      </div>
+      <div class="waveform" id="wf4"><canvas id="cv_w4"></canvas></div>
+      <div class="audio-duration" id="animeDur">–:––</div>
+      <audio id="animeAudio" src="kagami.wav" preload="metadata"></audio>
     </div>
 
     <div class="audio-item" id="hoerbuchItem" style="align-items:center;">
@@ -500,24 +534,9 @@ footer {
         <div class="audio-title">Der innere Klaus – Teaser</div>
         <div class="audio-meta">10 Jahre Argon Hörbuch · mit Simon Jäger &amp; Oliver Rohrbeck</div>
       </div>
-      <div class="waveform" id="wf2"></div>
+      <div class="waveform" id="wf2"><canvas id="cv_w2"></canvas></div>
       <div class="audio-duration" id="hoerbuchDur">–:––</div>
       <audio id="hoerbuchAudio" src="hoerprobe-hoerbuch.mp3" preload="metadata"></audio>
-    </div>
-
-    <div class="audio-item" id="animeItem" style="align-items:center;">
-      <div class="play-btn" onclick="toggleAnimeAudio()">
-        <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      </div>
-      <img src="taiga-thumbnail.png" alt="Taiga Kagami" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
-      <div class="audio-info">
-        <div class="audio-title">Kuroko's Basketball – Taiga Kagami</div>
-        <div class="audio-meta">Anime-Synchronisation · ProSieben Maxx</div>
-      </div>
-      <div class="waveform" id="wf4"></div>
-      <div class="audio-duration" id="animeDur">–:––</div>
-      <audio id="animeAudio" src="hoerprobe-anime.mp3" preload="metadata"></audio>
     </div>
 
     <div class="audio-item" id="meditationItem" style="align-items:center;">
@@ -527,10 +546,10 @@ footer {
       </div>
       <img src="thumb-meditation.png" alt="Meditation" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
       <div class="audio-info">
-        <div class="audio-title">Meditations-Begleitung</div>
-        <div class="audio-meta">Entspannend · Sonorig · Ruhige Führung</div>
+        <div class="audio-title" data-de="Meditations-Begleitung" data-en="Meditation Guide">Meditations-Begleitung</div>
+        <div class="audio-meta" data-de="Entspannend · Sonorig · Ruhige Führung" data-en="Relaxing · Sonorig · Gentle Guidance">Entspannend · Sonorig · Ruhige Führung</div>
       </div>
-      <div class="waveform" id="wf1"></div>
+      <div class="waveform" id="wf1"><canvas id="cv_w1"></canvas></div>
       <div class="audio-duration" id="meditationDur">–:––</div>
       <audio id="meditationAudio" src="meditation.wav" preload="metadata"></audio>
     </div>
@@ -543,9 +562,9 @@ footer {
       <img src="thumb-vampire-diaries.png" alt="The Vampire Diaries" style="width:52px;height:52px;border-radius:6px;object-fit:cover;flex-shrink:0;"/>
       <div class="audio-info">
         <div class="audio-title">The Vampire Diaries – Alle 5 Bände</div>
-        <div class="audio-meta">Solo-Lesung · cbj audio · Random House</div>
+        <div class="audio-meta" data-de="Solo-Lesung · cbj audio · Random House" data-en="Solo Narration · cbj audio · Random House">Solo-Lesung · cbj audio · Random House</div>
       </div>
-      <div class="waveform" id="wf6"></div>
+      <div class="waveform" id="wf6"><canvas id="cv_w6"></canvas></div>
       <div class="audio-duration" id="vdDur">–:––</div>
       <audio id="vdAudio" src="hoerprobe-vampirediaries.mp3" preload="metadata"></audio>
     </div>
@@ -567,15 +586,15 @@ footer {
 
 <!-- VIDEOS -->
 <section class="video-section" id="videos">
-  <div class="section-label">Auf der Leinwand & im Studio</div>
-  <h2 class="section-title">Video<em>galerie</em></h2>
+  <div class="section-label" data-de="Auf der Leinwand & im Studio" data-en="On Screen & in the Studio">Auf der Leinwand & im Studio</div>
+  <h2 class="section-title"><span data-de="Video" data-en="Video ">Video</span><em data-de="galerie" data-en="gallery">galerie</em></h2>
 
   <div class="filter-bar">
-    <button class="filter-btn" onclick="filterVideos('all', this)">Alle</button>
-    <button class="filter-btn active" onclick="filterVideos('werbung', this)">Werbung</button>
-    <button class="filter-btn" onclick="filterVideos('synchron', this)">Synchron</button>
-    <button class="filter-btn" onclick="filterVideos('hoerbuch', this)">Hörbuch</button>
-    <button class="filter-btn" onclick="filterVideos('games', this)">Games & Anderes</button>
+    <button class="filter-btn" onclick="filterVideos('all', this)" data-de="Alle" data-en="All">Alle</button>
+    <button class="filter-btn active" onclick="filterVideos('werbung', this)" data-de="Werbung" data-en="Commercials">Werbung</button>
+    <button class="filter-btn" onclick="filterVideos('synchron', this)" data-de="Synchron" data-en="Dubbing">Synchron</button>
+    <button class="filter-btn" onclick="filterVideos('hoerbuch', this)" data-de="Hörbuch" data-en="Audiobooks">Hörbuch</button>
+    <button class="filter-btn" onclick="filterVideos('games', this)" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</button>
   </div>
 
   <div class="video-grid" id="videoGrid">
@@ -585,7 +604,7 @@ footer {
         <img src="thumb-coca-cola.jpg" alt="Coca-Cola" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Werbung</div><div class="video-title">Coca-Cola – Offen wie nie zuvor</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">Coca-Cola – Offen wie nie zuvor</div></div>
     </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('happy-hippo.mp4', 'Happy Hippo – Kinder')">
@@ -593,7 +612,7 @@ footer {
         <img src="thumb-happy-hippo.jpg" alt="Happy Hippo" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Werbung</div><div class="video-title">Happy Hippo – Kinder</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">Happy Hippo – Kinder</div></div>
     </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('fanta-raetsel.mp4', 'WhatTheFanta – Geschmacksrätsel')">
@@ -601,7 +620,7 @@ footer {
         <img src="thumb-fanta-raetsel.jpg" alt="WhatTheFanta Geschmacksrätsel" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Werbung</div><div class="video-title">WhatTheFanta – Geschmacksrätsel</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">WhatTheFanta – Geschmacksrätsel</div></div>
     </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('fanta-verrueckt.mp4', 'WhatTheFanta – Voll verrückt')">
@@ -609,7 +628,7 @@ footer {
         <img src="thumb-fanta-verrueckt.jpg" alt="WhatTheFanta Voll verrückt" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Werbung</div><div class="video-title">WhatTheFanta – Voll verrückt</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">WhatTheFanta – Voll verrückt</div></div>
     </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('mayr-bau.mp4', 'Mayr Bau – Echte Kerle bauen echte Häuser')">
@@ -617,7 +636,7 @@ footer {
         <img src="thumb-mayr-bau.jpg" alt="Mayr Bau" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Imagefilm</div><div class="video-title">Mayr Bau – Echte Kerle bauen echte Häuser</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Imagefilm" data-en="Corporate Film">Imagefilm</div><div class="video-title">Mayr Bau – Echte Kerle bauen echte Häuser</div></div>
     </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('veet-men.mp4', 'Veet Men – Perfekt glatte Haut')">
@@ -625,7 +644,7 @@ footer {
         <img src="thumb-veet-men.jpg" alt="Veet Men" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Werbung</div><div class="video-title">Veet Men – Perfekt glatte Haut</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">Veet Men – Perfekt glatte Haut</div></div>
     </div>
 
     <div class="video-card hidden" data-cat="games" onclick="openVideo('yWsWGg01NNM')">
@@ -633,31 +652,31 @@ footer {
         <img src="https://img.youtube.com/vi/yWsWGg01NNM/mqdefault.jpg" alt="Days Gone Interview" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Days Gone Interview – Deacon St. John</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Games &amp; Anderes" data-en="Games &amp; More">Games &amp; Anderes</div><div class="video-title">Days Gone Interview – Deacon St. John</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('w9ecP6B9Bb8')">
+    <div class="video-card hidden" data-cat="synchron" onclick="openVideo('w9ecP6B9Bb8')">
       <div class="video-thumb">
         <img src="https://img.youtube.com/vi/w9ecP6B9Bb8/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Bühne & Film</div><div class="video-title">Schauspiel – Bühnenprojekt</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Hugo Silva "Despido Procedente" – Synchronclip</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('jyIveDv37-0')">
+    <div class="video-card hidden" data-cat="synchron" onclick="openVideo('jyIveDv37-0')">
       <div class="video-thumb">
         <img src="https://img.youtube.com/vi/jyIveDv37-0/mqdefault.jpg" alt="Kuroko's Basketball" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">Kuroko's Basketball – Synchronclip</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Taiga Kagami "Kurokos Basketball" – Synchronclip</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('Ju0TibQ_ZtA')">
+    <div class="video-card hidden" data-cat="synchron" onclick="openVideo('Ju0TibQ_ZtA')">
       <div class="video-thumb">
         <img src="https://img.youtube.com/vi/Ju0TibQ_ZtA/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Bühne & Film</div><div class="video-title">Filmrolle – Charakterstudie</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Marlon Wayans – Synchronclip (Netflix)</div></div>
     </div>
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('Vcfcx8FlvSM')">
@@ -665,15 +684,15 @@ footer {
         <img src="https://img.youtube.com/vi/Vcfcx8FlvSM/mqdefault.jpg" alt="Terminator Genisys" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">Terminator Genisys – Synchronclip</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Terminator Genisys – Synchronclip</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('uFzLz1FGCAg')">
+    <div class="video-card hidden" data-cat="synchron" onclick="openVideo('uFzLz1FGCAg')">
       <div class="video-thumb">
         <img src="https://img.youtube.com/vi/uFzLz1FGCAg/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Hinter den Kulissen – Sprecherarbeit</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Hauptrolle in LIMITLESS – Synchronclip (Pro 7)</div></div>
     </div>
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('zNtTG5K4Zxg')">
@@ -681,15 +700,15 @@ footer {
         <img src="https://img.youtube.com/vi/zNtTG5K4Zxg/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">Synchronclip – Actionszene</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Synchronclip – Actionszene</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('czTv4kovjgg')">
+    <div class="video-card hidden" data-cat="synchron" onclick="openVideo('czTv4kovjgg')">
       <div class="video-thumb">
         <img src="https://img.youtube.com/vi/czTv4kovjgg/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Filmszene – dramatische Rolle</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Adam Strange "Krypton" – Synchronclip</div></div>
     </div>
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('PJjLwJoSg8s')">
@@ -697,7 +716,7 @@ footer {
         <img src="https://img.youtube.com/vi/PJjLwJoSg8s/mqdefault.jpg" alt="Civil War" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">The First Avenger: Civil War</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">The First Avenger: Civil War</div></div>
     </div>
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('muouUvEa7OQ')">
@@ -705,7 +724,7 @@ footer {
         <img src="https://img.youtube.com/vi/muouUvEa7OQ/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">Synchronclip – Serienrolle</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Synchronclip – Serienrolle</div></div>
     </div>
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('KUHo0eelhUA')">
@@ -713,31 +732,119 @@ footer {
         <img src="https://img.youtube.com/vi/KUHo0eelhUA/mqdefault.jpg" alt="The Flash" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">The Flash – Todd Lasance</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">The Flash – Todd Lasance</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('bBGeycREB2s')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/bBGeycREB2s/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Theaterszene</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('t64JsXIRx0g')">
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('t64JsXIRx0g')">
       <div class="video-thumb">
         <img src="https://img.youtube.com/vi/t64JsXIRx0g/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Sprecher im Gespräch</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Der Kuba Deal · Nelson DeMille</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('vy9FTMlCW_s')">
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('vy9FTMlCW_s')">
       <div class="video-thumb">
         <img src="https://img.youtube.com/vi/vy9FTMlCW_s/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Filmproduktion – Szene</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Selbstporträt mit Flusspferd</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('786Q-2MrztI'">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/786Q-2MrztI/mqdefault.jpg" alt="Days Gone Main Cast" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Days Gone – Main Cast</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('JMI-HEHjw2Q')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/JMI-HEHjw2Q/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Das stille Haus</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('UeVc1CsOg4c')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/UeVc1CsOg4c/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Letztendlich sind wir dem Universum egal</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('4T_prYdYeWw')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/4T_prYdYeWw/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Schneckenkönig</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('DuC9-baXloM')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/DuC9-baXloM/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Kill the Rich</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('jBpu1AQM15Q')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/jBpu1AQM15Q/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Ein Jeti will hoch hinaus</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('m3VOXPAHs_Y')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/m3VOXPAHs_Y/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Willkommen Realität</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('CUb7h08XRO0')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/CUb7h08XRO0/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Sherlock Holmes Chronicles</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('V3kGASsFqQI')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/V3kGASsFqQI/mqdefault.jpg" alt="Zelda Hyrule Warriors" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">ZELDA – Hyrule Warriors – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('7vFVK1zKrtE')">
+      <div class="video-thumb">
+        <img src="thumb-mafia3.png" alt="Mafia 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Mafia 3 – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('bWps6ncpbrs')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/bWps6ncpbrs/mqdefault.jpg" alt="Far Cry 5" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Far Cry 5 – Stacey Pratt – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('KPP_zey__WU')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/KPP_zey__WU/mqdefault.jpg" alt="Forza Horizon 3" loading="lazy"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Forza Horizon 3 – Radiostation Host – Game-Synchronisation</div></div>
     </div>
 
     <div class="video-card hidden" data-cat="games" onclick="openVideo('umaa1C7uvaY')">
@@ -745,155 +852,122 @@ footer {
         <img src="https://img.youtube.com/vi/umaa1C7uvaY/mqdefault.jpg" alt="Video" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat">Games</div><div class="video-title">Game-Synchronisation</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="synchron" onclick="openVideo('JMI-HEHjw2Q')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/JMI-HEHjw2Q/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">Synchronszene – Drama</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('UeVc1CsOg4c')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/UeVc1CsOg4c/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Bühne & Film</div><div class="video-title">Darstellung – intensive Szene</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('4T_prYdYeWw')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/4T_prYdYeWw/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Games</div><div class="video-title">Games – Action-Synchronisation</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('DuC9-baXloM')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/DuC9-baXloM/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Filmszene</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="synchron" onclick="openVideo('jBpu1AQM15Q')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/jBpu1AQM15Q/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Synchron</div><div class="video-title">Synchronclip – Comedyszene</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('m3VOXPAHs_Y')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/m3VOXPAHs_Y/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Bühnenproduktion</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('CUb7h08XRO0')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/CUb7h08XRO0/mqdefault.jpg" alt="Video" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Games &amp; Anderes</div><div class="video-title">Portrait – Adam Nümm</div></div>
-    </div>
-
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('786Q-2MrztI')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/786Q-2MrztI/mqdefault.jpg" alt="Days Gone Main Cast" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat">Games & Anderes</div><div class="video-title">Days Gone – Main Cast</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Kinofilm – Hauptrolle</div></div>
     </div>
 
   </div>
 </section>
 <section class="credits-section" id="rollen">
   <div style="padding: 0 0 0 0;">
-    <div class="section-label">Ausgewählte Credits</div>
-    <h2 class="section-title">Bekannte <em>Rollen</em></h2>
+    <div class="section-label" data-de="Ausgewählte Credits" data-en="Selected Credits">Ausgewählte Credits</div>
+    <h2 class="section-title"><span data-de="Bekannte " data-en="Notable ">Bekannte </span><em data-de="Rollen" data-en="Roles">Rollen</em></h2>
   </div>
   <div class="credits-grid">
     <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
-      <div class="credit-role" style="color:var(--warm2);">⭐ Synchron · Blockbuster</div>
-      <div class="credit-name">Bala-Tik</div>
-      <div class="credit-show">Star Wars: Das Erwachen der Macht (2015) · J.J. Abrams · Brian Vernel</div>
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Blockbuster" data-en="⭐ Dubbing · Blockbuster">⭐ Synchron · Blockbuster</div>
+      <div class="credit-name">Squid Game</div>
+      <div class="credit-show"><span data-de="Staffel 2 · Netflix · als Spieler 343 · Hyun-joong Kang" data-en="Season 2 · Netflix · as Player 343 · Hyun-joong Kang">Staffel 2 · Netflix · als Spieler 343 · Hyun-joong Kang</span></div>
+    </div>
+    <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Netflix Hauptrolle" data-en="⭐ Dubbing · Netflix Lead Role">⭐ Synchron · Netflix Hauptrolle</div>
+      <div class="credit-name">Eine Nacht im Kindergarten</div>
+      <div class="credit-show"><span data-de="Netflix Original · 2022 · Hauptrolle Eryk · Piotr Witkowski" data-en="Netflix Original · 2022 · Lead Role Eryk · Piotr Witkowski">Netflix Original · 2022 · Hauptrolle Eryk · Piotr Witkowski</span></div>
+    </div>
+    <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Blockbuster" data-en="⭐ Dubbing · Blockbuster">⭐ Synchron · Blockbuster</div>
+      <div class="credit-name">Star Wars: Episode VII</div>
+      <div class="credit-show"><span data-de="Das Erwachen der Macht · 2015 · als Bala-Tik · Brian Vernel" data-en="The Force Awakens · 2015 · as Bala-Tik · Brian Vernel">Das Erwachen der Macht · 2015 · als Bala-Tik · Brian Vernel</span></div>
+    </div>
+    <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Serien-Hauptrolle" data-en="⭐ Dubbing · Series Lead Role">⭐ Synchron · Serien-Hauptrolle</div>
+      <div class="credit-name">Limitless</div>
+      <div class="credit-show"><span data-de="Serien-Hauptrolle · Pro 7 · 2015–2016 · als Brian Finch · Jake McDorman" data-en="Series Lead · Pro 7 · 2015–2016 · as Brian Finch · Jake McDorman">Serien-Hauptrolle · Pro 7 · 2015–2016 · als Brian Finch · Jake McDorman</span></div>
+    </div>
+
+    <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Games · PlayStation Exclusive" data-en="⭐ Games · PlayStation Exclusive">⭐ Games · PlayStation Exclusive</div>
+      <div class="credit-name">Days Gone</div>
+      <div class="credit-show"><span data-de="PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John" data-en="PlayStation Exclusive · 2019 · Lead Role as Deacon St. John">PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Synchron · Serie</div>
+      <div class="credit-role" data-de="Synchron · Serie" data-en="Dubbing · Series">Synchron · Serie</div>
       <div class="credit-name">Westworld</div>
-      <div class="credit-show">Synchronrolle · HBO-Serie</div>
+      <div class="credit-show"><span data-de="HBO · als Felix Lutz · Leonardo Nam" data-en="HBO · as Felix Lutz · Leonardo Nam">HBO · als Felix Lutz · Leonardo Nam</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Synchron · Kinofilm</div>
+      <div class="credit-role" data-de="Synchron · Kinofilm" data-en="Dubbing · Feature Film">Synchron · Kinofilm</div>
       <div class="credit-name">Snowden</div>
-      <div class="credit-show">Snowden (2016) · Oliver Stone · größere Rolle</div>
+      <div class="credit-show"><span data-de="Snowden (2016) · Oliver Stone · größere Rolle" data-en="Snowden (2016) · Oliver Stone · featured role">Snowden (2016) · Oliver Stone · größere Rolle</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Synchron · Kinofilm</div>
+      <div class="credit-role" data-de="Synchron · Kinofilm" data-en="Dubbing · Feature Film">Synchron · Kinofilm</div>
       <div class="credit-name">Ant-Man</div>
-      <div class="credit-show">Ant-Man (2015) · Marvel · Synchronrolle</div>
+      <div class="credit-show"><span data-de="Ant-Man (2015) · Marvel · Synchronrolle" data-en="Ant-Man (2015) · Marvel · dubbing role">Ant-Man (2015) · Marvel · Synchronrolle</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Synchron · Serie</div>
+      <div class="credit-role" data-de="Synchron · Serie" data-en="Dubbing · Series">Synchron · Serie</div>
       <div class="credit-name">Game of Thrones</div>
-      <div class="credit-show">Synchronrolle · HBO-Serie</div>
+      <div class="credit-show"><span data-de="Staffel 5 · HBO · als Malko · Adewale Akinnuoye-Agbaje" data-en="Season 5 · HBO · as Malko · Adewale Akinnuoye-Agbaje">Staffel 5 · HBO · als Malko · Adewale Akinnuoye-Agbaje</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Games · Voice Acting</div>
-      <div class="credit-name">Far Cry 5 · Forza · Mafia 3</div>
-      <div class="credit-show">Ubisoft / Rockstar · Game Voice Acting</div>
+      <div class="credit-role" data-de="Games · Voice Acting" data-en="Games · Voice Acting">Games · Voice Acting</div>
+      <div class="credit-name">Far Cry 5</div>
+      <div class="credit-show"><span data-de="Ubisoft · 2018 · als Stacey Pratt" data-en="Ubisoft · 2018 · as Stacey Pratt">Ubisoft · 2018 · als Stacey Pratt</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Games · Voice Acting</div>
-      <div class="credit-name">Fortnite – Boss-Rolle</div>
-      <div class="credit-show">Epic Games · Größere Rolle · 2025</div>
+      <div class="credit-role" data-de="Games · Voice Acting" data-en="Games · Voice Acting">Games · Voice Acting</div>
+      <div class="credit-name">Forza Horizon 3</div>
+      <div class="credit-show"><span data-de="Microsoft · 2016 · Radiostation Host" data-en="Microsoft · 2016 · Radio Station Host">Microsoft · 2016 · Radiostation Host</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Synchron · Serie</div>
-      <div class="credit-name">Daniel LaRusso</div>
-      <div class="credit-show">Cobra Kai (2018–2025) · Ralph Macchio</div>
+      <div class="credit-role" data-de="Games · Voice Acting" data-en="Games · Voice Acting">Games · Voice Acting</div>
+      <div class="credit-name">Mafia 3</div>
+      <div class="credit-show">2K Games · Hangar 13 · 2016</div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Synchron · Serie</div>
-      <div class="credit-name">Brian Finch</div>
-      <div class="credit-show">Limitless (2015–2016) · Jake McDorman</div>
+      <div class="credit-role" data-de="Games · Voice Acting" data-en="Games · Voice Acting">Games · Voice Acting</div>
+      <div class="credit-name">Fortnite</div>
+      <div class="credit-show"><span data-de="Epic Games · Boss-Rolle · 2026 · coming soon" data-en="Epic Games · Boss Role · 2026 · coming soon">Epic Games · Boss-Rolle · 2026 · coming soon</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Synchron · Kinofilm</div>
-      <div class="credit-name">Pitbull</div>
-      <div class="credit-show">Chappie (2015) · Neill Blomkamp</div>
+      <div class="credit-role" data-de="Synchron · Serie" data-en="Dubbing · Series">Synchron · Serie</div>
+      <div class="credit-name">Cobra Kai</div>
+      <div class="credit-show"><span data-de="2018–2025 · als Daniel LaRusso · Ralph Macchio" data-en="2018–2025 · as Daniel LaRusso · Ralph Macchio">2018–2025 · als Daniel LaRusso · Ralph Macchio</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Hörbuch · Audible Original</div>
-      <div class="credit-name">Gavin Banks</div>
-      <div class="credit-show">Assassin's Creed: Gold · Ubisoft × Audible · 2020</div>
+      <div class="credit-role" data-de="Synchron · Netflix · Hauptrolle" data-en="Dubbing · Netflix · Lead Role">Synchron · Netflix · Hauptrolle</div>
+      <div class="credit-name">Naked</div>
+      <div class="credit-show"><span data-de="Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans" data-en="Netflix · 2017 · Lead Role Rob Anderson · Marlon Wayans">Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Hörbuch · Solo-Lesung</div>
+      <div class="credit-role" data-de="Synchron · Kinofilm" data-en="Dubbing · Feature Film">Synchron · Kinofilm</div>
+      <div class="credit-name">Chappie</div>
+      <div class="credit-show"><span data-de="2015 · Neill Blomkamp · als Pitbull" data-en="2015 · Neill Blomkamp · as Pitbull">2015 · Neill Blomkamp · als Pitbull</span></div>
+    </div>
+    <div class="credit-item">
+      <div class="credit-role" data-de="Hörbuch · Audible Original" data-en="Audiobook · Audible Original">Hörbuch · Audible Original</div>
+      <div class="credit-name">Assassin's Creed: Gold</div>
+      <div class="credit-show"><span data-de="Audible Original · Ubisoft · 2020 · als Omar Khalid" data-en="Audible Original · Ubisoft · 2020 · as Omar Khalid">Audible Original · Ubisoft · 2020 · als Omar Khalid</span></div>
+    </div>
+    <div class="credit-item">
+      <div class="credit-role" data-de="Hörbuch · Solo-Lesung" data-en="Audiobook · Solo Narration">Hörbuch · Solo-Lesung</div>
       <div class="credit-name">The Vampire Diaries</div>
-      <div class="credit-show">Alle 5 Bände · cbj audio · Random House</div>
+      <div class="credit-show"><span data-de="Alle 5 Bände · cbj audio · Random House" data-en="All 5 Volumes · cbj audio · Random House">Alle 5 Bände · cbj audio · Random House</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Hörbuch · Ausgezeichnet</div>
+      <div class="credit-role" data-de="Hörbuch · Ausgezeichnet" data-en="Audiobook · Award-Winning">Hörbuch · Ausgezeichnet</div>
       <div class="credit-name">James Joyce's Ulysses</div>
-      <div class="credit-show">RBB · Jahrespreis Schallplattenkritik 2013</div>
+      <div class="credit-show"><span data-de="RBB · Jahrespreis Schallplattenkritik 2013" data-en="RBB · Record Critics Annual Award 2013">RBB · Jahrespreis Schallplattenkritik 2013</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Bühne · Musical</div>
-      <div class="credit-name">Steve (1st Cast)</div>
-      <div class="credit-show">Hinterm Horizont · Theater am Potsdamer Platz</div>
+      <div class="credit-role" data-de="Bühne · Musical" data-en="Stage · Musical">Bühne · Musical</div>
+      <div class="credit-name">Hinterm Horizont</div>
+      <div class="credit-show"><span data-de="Theater am Potsdamer Platz · Steve (1st Cast)" data-en="Theater am Potsdamer Platz · Steve (Original Cast)">Theater am Potsdamer Platz · Steve (1st Cast)</span></div>
     </div>
     <div class="credit-item">
-      <div class="credit-role">Anime · Games</div>
-      <div class="credit-name">530+ Rollen</div>
-      <div class="credit-show">Beyblade, Ultraman, Kuroko's Basketball u.v.m.</div>
+      <div class="credit-role" data-de="Anime · Games" data-en="Anime · Games">Anime · Games</div>
+      <div class="credit-name" data-de="530+ Rollen" data-en="530+ Roles">530+ Rollen</div>
+      <div class="credit-show"><span data-de="Beyblade, Ultraman, Kuroko's Basketball u.v.m." data-en="Beyblade, Ultraman, Kuroko's Basketball and many more">Beyblade, Ultraman, Kuroko's Basketball u.v.m.</span></div>
     </div>
   </div>
 </section>
@@ -906,39 +980,39 @@ footer {
     </div>
     <div class="about-badge">
       <div class="about-badge-num">UdK</div>
-      <div class="about-badge-txt">Berlin · Diplom 2010</div>
+      <div class="about-badge-txt" data-de="Berlin · Diplom 2010" data-en="Berlin · Graduate 2010">Berlin · Diplom 2010</div>
     </div>
   </div>
 
   <div class="about-text">
-    <div class="section-label">Über mich</div>
-    <h2 class="section-title">Stimme mit <em>Geschichte</em></h2>
+    <div class="section-label" data-de="Über mich" data-en="About Me">Über mich</div>
+    <h2 class="section-title"><span data-de="Stimme mit " data-en="A Voice with ">Stimme mit </span><em data-de="Geschichte" data-en="History">Geschichte</em></h2>
     <div class="about-body">
-      <p>Aufgewachsen in Bergisch Gladbach, ausgebildet an den renommiertesten Theaterschulen Europas – der <span class="highlight">Scuola Teatro Dimitri</span> in der Schweiz, der <span class="highlight">Bayerischen Theaterakademie August Everding</span> und der <span class="highlight">Universität der Künste Berlin</span>.</p>
-      <p>Auf der Bühne stand ich u.a. an der <span class="highlight">Berliner Schaubühne</span>, dem <span class="highlight">Deutschen Theater Berlin</span> und dem <span class="highlight">Schauspielhaus Zürich</span>. Als Sprecher bewege ich mich zwischen Synchron, Hörbuch, Feature und Werbung – immer auf der Suche nach dem echten Moment.</p>
-      <p>Ich lebe und arbeite in <span class="highlight">Berlin-Neukölln</span>.</p>
+      <p><span data-de="Aufgewachsen in Bergisch Gladbach, ausgebildet an den renommiertesten Theaterschulen Europas" data-en="Raised in Bergisch Gladbach, trained at some of Europe's most prestigious theatre schools">Aufgewachsen in Bergisch Gladbach, ausgebildet an den renommiertesten Theaterschulen Europas</span> – der <span class="highlight">Scuola Teatro Dimitri</span> in der Schweiz, der <span class="highlight">Bayerischen Theaterakademie August Everding</span> und der <span class="highlight">Universität der Künste Berlin</span>.</p>
+      <p><span data-de="Auf der Bühne stand ich u.a. an der" data-en="On stage I have performed at">Auf der Bühne stand ich u.a. an der</span> <span class="highlight">Berliner Schaubühne</span>, dem <span class="highlight">Deutschen Theater Berlin</span> und dem <span class="highlight">Schauspielhaus Zürich</span>. <span data-de="Als Sprecher bewege ich mich zwischen Synchron, Hörbuch, Feature und Werbung – immer auf der Suche nach dem echten Moment." data-en="As a voice artist I work across dubbing, audiobooks, radio drama and advertising – always searching for the authentic moment.">Als Sprecher bewege ich mich zwischen Synchron, Hörbuch, Feature und Werbung – immer auf der Suche nach dem echten Moment.</span></p>
+      <p><span data-de="Ich lebe und arbeite in" data-en="I live and work in">Ich lebe und arbeite in</span> <span class="highlight">Berlin-Neukölln</span>.</p>
     </div>
     <div style="margin: 2rem 0;">
       <div style="display:flex;flex-direction:column;gap:16px;">
 
         <div style="border-left:3px solid var(--warm);padding:14px 20px;background:rgba(200,169,110,0.06);border-radius:0 6px 6px 0;">
-          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;Seine warme Baritonstimme stellt eine besondere N&auml;he zwischen dem H&ouml;rer und der Geschichte her.&ldquo;</div>
-          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;">Argon H&ouml;rbuch Verlag</div>
+          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;<span data-de="Seine warme Baritonstimme stellt eine besondere Nähe zwischen dem Hörer und der Geschichte her." data-en="His warm baritone voice creates a special intimacy between the listener and the story.">Seine warme Baritonstimme stellt eine besondere N&auml;he zwischen dem H&ouml;rer und der Geschichte her.</span>&ldquo;</div>
+          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;" data-de="Argon Hörbuch Verlag" data-en="Argon Audiobook Publishers">Argon H&ouml;rbuch Verlag</div>
         </div>
 
         <div style="border-left:3px solid var(--warm);padding:14px 20px;background:rgba(200,169,110,0.06);border-radius:0 6px 6px 0;">
-          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;Adam N&uuml;mm liest in einer perfekten Mischung aus Tristesse und &Uuml;bermut &ndash; eine Idealbesetzung f&uuml;r dieses Buch.&ldquo;</div>
-          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;">H&ouml;rbuch Hamburg</div>
+          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;<span data-de="Adam Nümm liest in einer perfekten Mischung aus Tristesse und Übermut – eine Idealbesetzung für dieses Buch." data-en="Adam Nümm reads with a perfect blend of melancholy and swagger – an ideal casting for this book.">Adam N&uuml;mm liest in einer perfekten Mischung aus Tristesse und &Uuml;bermut &ndash; eine Idealbesetzung f&uuml;r dieses Buch.</span>&ldquo;</div>
+          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;" data-de="Hörbuch Hamburg" data-en="Hörbuch Hamburg">H&ouml;rbuch Hamburg</div>
         </div>
 
         <div style="border-left:3px solid var(--warm);padding:14px 20px;background:rgba(200,169,110,0.06);border-radius:0 6px 6px 0;">
-          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;Kaum zu glauben, dass das ein und dieselbe Person war &ndash; ich hatte zu jeder Stimme ein Bild vor Augen.&ldquo;</div>
-          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;">H&ouml;rer-Rezension</div>
+          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;<span data-de="Kaum zu glauben, dass das ein und dieselbe Person war – ich hatte zu jeder Stimme ein Bild vor Augen." data-en="Hard to believe it was the same person – every voice painted a picture in my mind.">Kaum zu glauben, dass das ein und dieselbe Person war &ndash; ich hatte zu jeder Stimme ein Bild vor Augen.</span>&ldquo;</div>
+          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;" data-de="Hörer-Rezension" data-en="Listener Review">H&ouml;rer-Rezension</div>
         </div>
 
         <div style="border-left:3px solid var(--warm);padding:14px 20px;background:rgba(200,169,110,0.06);border-radius:0 6px 6px 0;">
-          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;Der Sprecher macht seine Sache sehr gut und verdient einen Zusatzstern.&ldquo;</div>
-          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;">Audible-Rezension &middot; Letztendlich sind wir dem Universum egal</div>
+          <div style="font-size:15px;color:var(--cream);line-height:1.7;font-style:italic;margin-bottom:8px;">&bdquo;<span data-de="Der Sprecher macht seine Sache sehr gut und verdient einen Zusatzstern." data-en="The narrator does his job exceptionally well and deserves a bonus star.">Der Sprecher macht seine Sache sehr gut und verdient einen Zusatzstern.</span>&ldquo;</div>
+          <div style="font-size:12px;color:var(--warm);letter-spacing:0.08em;text-transform:uppercase;" data-de="Audible-Rezension · Letztendlich sind wir dem Universum egal" data-en="Audible Review · We Are the Ants">Audible-Rezension &middot; Letztendlich sind wir dem Universum egal</div>
         </div>
 
       </div>
@@ -946,15 +1020,15 @@ footer {
 
     <div class="skills-list">
       <span class="skill-tag">Synchron</span>
-      <span class="skill-tag">Hörbuch</span>
-      <span class="skill-tag">Hörspiel</span>
-      <span class="skill-tag">Werbung</span>
-      <span class="skill-tag">Imagefilm</span>
+      <span class="skill-tag" data-de="Hörbuch" data-en="Audiobook">Hörbuch</span>
+      <span class="skill-tag" data-de="Hörspiel" data-en="Radio Drama">Hörspiel</span>
+      <span class="skill-tag" data-de="Werbung" data-en="Commercials">Werbung</span>
+      <span class="skill-tag" data-de="Imagefilm" data-en="Corporate Film">Imagefilm</span>
       <span class="skill-tag">E-Learning</span>
       <span class="skill-tag">Games</span>
       <span class="skill-tag">Anime</span>
-      <span class="skill-tag">Bühne</span>
-      <span class="skill-tag">Dialekte</span>
+      <span class="skill-tag" data-de="Bühne" data-en="Stage">Bühne</span>
+      <span class="skill-tag" data-de="Dialekte" data-en="Dialects">Dialekte</span>
     </div>
   </div>
 </section>
@@ -963,9 +1037,9 @@ footer {
 
 <!-- KONTAKT -->
 <section class="contact-section" id="kontakt">
-  <div class="section-label">Zusammenarbeiten</div>
+  <div class="section-label" data-de="Zusammenarbeiten" data-en="Let's Work Together">Zusammenarbeiten</div>
   <h2 class="section-title">Let's <em>talk.</em></h2>
-  <p class="contact-sub">Für Anfragen, Demos und Booking – ich freue mich von Ihnen zu hören.</p>
+  <p class="contact-sub" data-de="Für Anfragen, Demos und Booking – ich freue mich von Ihnen zu hören." data-en="For inquiries, demos and booking – I look forward to hearing from you.">Für Anfragen, Demos und Booking – ich freue mich von Ihnen zu hören.</p>
   <div class="contact-links">
     <a href="tel:+491774475849" class="contact-link">
       📞 +49 177 447 58 49
@@ -996,19 +1070,121 @@ for (let i = 0; i < 120; i++) {
   sw.appendChild(bar);
 }
 
-// ── WAVEFORMS ──
-function buildWaveform(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const heights = [30,50,70,45,80,60,40,75,55,65,35,90,50,70,40,60,80,45,55,70,35,65,50,80,40,75,60,45];
-  heights.forEach(h => {
-    const bar = document.createElement('div');
-    bar.className = 'wf-bar';
-    bar.style.setProperty('--h', h + '%');
-    el.appendChild(bar);
+// ── WAVEFORMS VARIANTE C: runde Pillen mit Glow-Kopf + Scrubbing ──
+const WF_H = [28,45,62,38,75,52,35,70,48,58,30,85,44,65,36,55,78,42,50,68,32,60,47,80,38,72,55,40,33,58,74,41,83,50,64,40,70,56,34,79,46,63,52,73,37,81,47,62,54,71,30,84,48,67,36,77,43,66,56,72,31,86,49,68,37,76,44,63,57,74,29,88,51,70,39,78,45,65,58,75];
+const GOLD = '#c8a96e';
+const GOLD_HEAD = '#f0d898';
+const INACTIVE = 'rgba(255,255,255,0.14)';
+
+const wfPairs = [
+  {wfId:'wf_dg', cvId:'cv_dg', audioId:'daysGoneAudio'},
+  {wfId:'wf_ac', cvId:'cv_ac', audioId:'acAudio'},
+  {wfId:'wf3',   cvId:'cv_w3', audioId:'werbungAudio'},
+  {wfId:'wf2',   cvId:'cv_w2', audioId:'hoerbuchAudio'},
+  {wfId:'wf4',   cvId:'cv_w4', audioId:'animeAudio'},
+  {wfId:'wf1',   cvId:'cv_w1', audioId:'meditationAudio'},
+  {wfId:'wf6',   cvId:'cv_w6', audioId:'vdAudio'},
+];
+
+function drawWaveformC(cv, progress) {
+  const w = cv.offsetWidth, h = cv.offsetHeight;
+  if (!w || !h) return;
+  cv.width = w; cv.height = h;
+  const ctx = cv.getContext('2d');
+  ctx.clearRect(0,0,w,h);
+  const n = WF_H.length;
+  const barW = Math.max(1.5, (w - n * 1.5) / n);
+  const gap = (w - barW * n) / (n - 1);
+  const headIdx = Math.floor(progress * n);
+  WF_H.forEach((hv, i) => {
+    const x = i * (barW + gap);
+    const bh = (hv / 100) * h;
+    const y = (h - bh) / 2;
+    const r = barW / 2;
+    ctx.shadowBlur = 0;
+    if (i < headIdx) {
+      ctx.fillStyle = 'rgba(200,169,110,0.82)';
+    } else if (i === headIdx) {
+      ctx.fillStyle = GOLD_HEAD;
+      ctx.shadowColor = 'rgba(240,216,152,0.65)';
+      ctx.shadowBlur = 7;
+    } else {
+      ctx.fillStyle = INACTIVE;
+    }
+    ctx.beginPath();
+    ctx.roundRect(x, y, barW, bh, r);
+    ctx.fill();
+    ctx.shadowBlur = 0;
   });
 }
-['wf_ac','wf1','wf2','wf3','wf4','wf6'].forEach(buildWaveform);
+
+let wfScrubbing = {};
+
+wfPairs.forEach(({wfId, cvId, audioId}) => {
+  const wrap = document.getElementById(wfId);
+  const cv   = document.getElementById(cvId);
+  if (!wrap || !cv) return;
+
+  function getProgress(e) {
+    const rect = wrap.getBoundingClientRect();
+    const cx = e.touches ? e.touches[0].clientX : e.clientX;
+    return Math.min(1, Math.max(0, (cx - rect.left) / rect.width));
+  }
+
+  wrap.addEventListener('mousedown', e => {
+    const audio = document.getElementById(audioId);
+    if (!audio) return;
+    wfScrubbing[wfId] = true;
+    const p = getProgress(e);
+    if (audio.duration) audio.currentTime = p * audio.duration;
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (!wfScrubbing[wfId]) return;
+    const audio = document.getElementById(audioId);
+    if (!audio) return;
+    const p = getProgress(e);
+    if (audio.duration) audio.currentTime = p * audio.duration;
+  });
+
+  window.addEventListener('mouseup', () => { wfScrubbing[wfId] = false; });
+
+  wrap.addEventListener('touchstart', e => {
+    const audio = document.getElementById(audioId);
+    if (!audio) return;
+    wfScrubbing[wfId] = true;
+    const p = getProgress(e);
+    if (audio.duration) audio.currentTime = p * audio.duration;
+  }, {passive:true});
+
+  window.addEventListener('touchmove', e => {
+    if (!wfScrubbing[wfId]) return;
+    const audio = document.getElementById(audioId);
+    if (!audio) return;
+    const p = getProgress(e);
+    if (audio.duration) audio.currentTime = p * audio.duration;
+  }, {passive:true});
+
+  window.addEventListener('touchend', () => { wfScrubbing[wfId] = false; });
+});
+
+function redrawAllWaveforms() {
+  wfPairs.forEach(({cvId, audioId}) => {
+    const cv = document.getElementById(cvId);
+    const audio = document.getElementById(audioId);
+    if (!cv) return;
+    const p = (audio && audio.duration) ? audio.currentTime / audio.duration : 0;
+    drawWaveformC(cv, p);
+  });
+}
+
+function wfRafLoop() {
+  redrawAllWaveforms();
+  requestAnimationFrame(wfRafLoop);
+}
+wfRafLoop();
+
+window.addEventListener('resize', redrawAllWaveforms);
 
 // ── AUDIO PLAYER (simulated) ──
 let currentPlaying = null;
@@ -1157,8 +1333,8 @@ if (acAudio) {
 }
 
 function stopAll() {
-  [meditationAudio, hoerbuchAudio, animeAudio, werbungAudio, acAudio, vdAudio].forEach(a => { if(a) a.pause(); });
-  [meditationItem, hoerbuchItem, animeItem, werbungItem, acItem, vdItem].forEach(i => { if(i) i.classList.remove('playing'); });
+  [daysGoneAudio, meditationAudio, hoerbuchAudio, animeAudio, werbungAudio, acAudio, vdAudio].forEach(a => { if(a) a.pause(); });
+  [daysGoneItem, meditationItem, hoerbuchItem, animeItem, werbungItem, acItem, vdItem].forEach(i => { if(i) i.classList.remove('playing'); });
 }
 
 const vdAudio = document.getElementById('vdAudio');
@@ -1187,6 +1363,35 @@ function toggleVdAudio() {
   } else {
     vdAudio.pause();
     vdItem.classList.remove('playing');
+  }
+}
+
+const daysGoneAudio = document.getElementById('daysGoneAudio');
+const daysGoneItem  = document.getElementById('daysGoneItem');
+
+if (daysGoneAudio) {
+  function updateDaysGoneDur() {
+    if (daysGoneAudio.duration && !isNaN(daysGoneAudio.duration)) {
+      const m = Math.floor(daysGoneAudio.duration / 60);
+      const s = Math.floor(daysGoneAudio.duration % 60).toString().padStart(2, '0');
+      document.getElementById('daysGoneDur').textContent = m + ':' + s;
+    }
+  }
+  daysGoneAudio.addEventListener('loadedmetadata', updateDaysGoneDur);
+  daysGoneAudio.addEventListener('durationchange', updateDaysGoneDur);
+  daysGoneAudio.addEventListener('canplay', updateDaysGoneDur);
+  daysGoneAudio.addEventListener('ended', () => daysGoneItem.classList.remove('playing'));
+}
+
+function toggleDaysGoneAudio() {
+  if (!daysGoneAudio) return;
+  if (daysGoneAudio.paused) {
+    stopAll();
+    daysGoneAudio.play().catch(e => console.log('Audio error:', e));
+    daysGoneItem.classList.add('playing');
+  } else {
+    daysGoneAudio.pause();
+    daysGoneItem.classList.remove('playing');
   }
 }
 
@@ -1257,6 +1462,31 @@ document.querySelectorAll('.video-card').forEach((el, i) => {
   el.style.cssText += `opacity:0; transform:translateY(16px); transition: opacity 0.5s ${i*0.04}s, transform 0.5s ${i*0.04}s;`;
   observer.observe(el);
 });
+
+// ── LANGUAGE TOGGLE ──
+let currentLang = localStorage.getItem('lang') || 'de';
+document.getElementById('langToggle').textContent = currentLang === 'de' ? 'EN' : 'DE';
+
+function toggleLang() {
+  currentLang = currentLang === 'de' ? 'en' : 'de';
+  localStorage.setItem('lang', currentLang);
+  applyLang();
+  document.getElementById('langToggle').textContent = currentLang === 'de' ? 'EN' : 'DE';
+}
+
+function applyLang() {
+  document.querySelectorAll('[data-de]').forEach(el => {
+    const txt = el.getAttribute('data-' + currentLang);
+    if (txt !== null) el.innerHTML = txt;
+  });
+  document.documentElement.lang = currentLang;
+  document.getElementById('pageTitle').textContent = currentLang === 'de'
+    ? 'Adam Nümm – Stimme. Bühne. Charakter.'
+    : 'Adam Nümm – Voice. Stage. Character.';
+}
+
+if (currentLang === 'en') applyLang();
+
 </script>
 </body>
 </html>
