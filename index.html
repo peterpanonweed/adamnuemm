@@ -291,6 +291,33 @@ nav {
 }
 .contact-link:hover { border-color: var(--warm); color: var(--warm); }
 
+/* Synchronstar Booking Button */
+.contact-link--synchronstar {
+  background: #1a2e52;
+  border-color: #1a2e52;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 2px 16px rgba(26,46,82,0.4);
+}
+.contact-link--synchronstar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contact-link--synchronstar:hover {
+  background: #243d6e;
+  border-color: #243d6e;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,46,82,0.55);
+}
+
 /* ── VIDEO SECTION ── */
 .video-section { padding: 100px 48px; }
 
@@ -457,9 +484,13 @@ footer {
   .audio-meta { font-size: 11px; line-height: 1.4; white-space: normal; margin-top: 2px; }
 
   /* ── ABOUT SECTION ── */
-  .about-section { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
-  .about-badge { bottom: -12px; right: -8px; padding: 14px 18px; }
-  .about-badge-num { font-size: 24px; }
+  .about-section { grid-template-columns: 1fr; padding: 60px 20px; gap: 56px; }
+  .about-badge {
+    bottom: -48px;
+    right: 0;
+    padding: 12px 16px;
+  }
+  .about-badge-num { font-size: 22px; }
   .about-badge-txt { font-size: 10px; }
   .about-portrait { aspect-ratio: 4/5; }
 
@@ -692,9 +723,44 @@ footer {
     <button class="filter-btn" onclick="filterVideos('synchron', this)" data-de="Synchron" data-en="Dubbing">Synchron</button>
     <button class="filter-btn" onclick="filterVideos('hoerbuch', this)" data-de="Hörbuch" data-en="Audiobooks">Hörbuch</button>
     <button class="filter-btn" onclick="filterVideos('games', this)" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</button>
+    <button class="filter-btn" onclick="filterVideos('dialogbuch', this)" data-de="Dialogbuch" data-en="Screenplay">Dialogbuch</button>
   </div>
 
   <div class="video-grid" id="videoGrid">
+
+    <!-- DIALOGBÜCHER -->
+    <div class="video-card hidden" data-cat="dialogbuch">
+      <div class="video-thumb">
+        <img src="thumb-letraducteurs.png" alt="Das Rätsel – Les Traducteurs" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta">
+        <div class="video-cat" data-de="Dialogbuch" data-en="Screenplay">Dialogbuch</div>
+        <div class="video-title">Das Rätsel (Les Traducteurs) – Regie: Régis Roinsard · mit Lambert Wilson, Olga Kurylenko · 2019</div>
+      </div>
+    </div>
+
+    <div class="video-card hidden" data-cat="dialogbuch">
+      <div class="video-thumb">
+        <img src="thumb-across.png" alt="Across the River and Into the Trees" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta">
+        <div class="video-cat" data-de="Dialogbuch" data-en="Screenplay">Dialogbuch</div>
+        <div class="video-title">Across the River &amp; Into the Trees – Regie: Paula Ortiz · mit Josh Hutcherson, Liev Schreiber, Matilda De Angelis · 2024</div>
+      </div>
+    </div>
+
+    <div class="video-card hidden" data-cat="dialogbuch">
+      <div class="video-thumb">
+        <img src="thumb-hunted.png" alt="The Hunted" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta">
+        <div class="video-cat" data-de="Dialogbuch" data-en="Screenplay">Dialogbuch</div>
+        <div class="video-title">The Hunted – Regie: Louis Lagayette · mit Lily Banda, Alec Newman, Mylène Jampanoï · 2023</div>
+      </div>
+    </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('coca-cola.mp4', 'Coca-Cola – Offen wie nie zuvor')">
       <div class="video-thumb">
@@ -938,7 +1004,7 @@ footer {
 
     <div class="video-card hidden" data-cat="games" onclick="openVideo('KPP_zey__WU')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/KPP_zey__WU/mqdefault.jpg" alt="Forza Horizon 3" loading="lazy"/>
+        <img src="thumb-forza3.png" alt="Forza Horizon 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Forza Horizon 3 – Radiostation Host – Game-Synchronisation</div></div>
@@ -1034,6 +1100,11 @@ footer {
       <div class="credit-name">Days Gone</div>
       <div class="credit-show"><span data-de="PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John" data-en="PlayStation Exclusive · 2019 · Lead Role as Deacon St. John">PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John</span></div>
     </div>
+    <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Netflix Hauptrolle" data-en="⭐ Dubbing · Netflix Lead Role">⭐ Synchron · Netflix Hauptrolle</div>
+      <div class="credit-name">Naked</div>
+      <div class="credit-show"><span data-de="Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans" data-en="Netflix · 2017 · Lead Role Rob Anderson · Marlon Wayans">Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans</span></div>
+    </div>
     <div class="credit-item">
       <div class="credit-role" data-de="Synchron · Serie" data-en="Dubbing · Series">Synchron · Serie</div>
       <div class="credit-name">Westworld</div>
@@ -1079,11 +1150,7 @@ footer {
       <div class="credit-name">Cobra Kai</div>
       <div class="credit-show"><span data-de="2018–2025 · als Daniel LaRusso · Ralph Macchio" data-en="2018–2025 · as Daniel LaRusso · Ralph Macchio">2018–2025 · als Daniel LaRusso · Ralph Macchio</span></div>
     </div>
-    <div class="credit-item">
-      <div class="credit-role" data-de="Synchron · Netflix · Hauptrolle" data-en="Dubbing · Netflix · Lead Role">Synchron · Netflix · Hauptrolle</div>
-      <div class="credit-name">Naked</div>
-      <div class="credit-show"><span data-de="Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans" data-en="Netflix · 2017 · Lead Role Rob Anderson · Marlon Wayans">Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans</span></div>
-    </div>
+
     <div class="credit-item">
       <div class="credit-role" data-de="Synchron · Kinofilm" data-en="Dubbing · Feature Film">Synchron · Kinofilm</div>
       <div class="credit-name">Chappie</div>
@@ -1174,6 +1241,7 @@ footer {
       <span class="skill-tag">Anime</span>
       <span class="skill-tag" data-de="Bühne" data-en="Stage">Bühne</span>
       <span class="skill-tag" data-de="Dialekte" data-en="Dialects">Dialekte</span>
+      <span class="skill-tag" data-de="Dialogbuch" data-en="Dialogue Book">Dialogbuch</span>
     </div>
   </div>
 </section>
@@ -1188,6 +1256,12 @@ footer {
   <div class="contact-links">
     <a href="tel:+491774475849" class="contact-link">
       📞 +49 177 447 58 49
+    </a>
+    <a href="https://www.synchronstar.de/intern/detail/adam-nuemm/4512" target="_blank" class="contact-link contact-link--synchronstar" data-de="Booking via synchronstar.de" data-en="Booking via synchronstar.de">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+      </svg>
+      Booking via synchronstar.de
     </a>
     <a href="mailto:mail@adamnuemm.de" class="contact-link">
       ✉ mail@adamnuemm.de
