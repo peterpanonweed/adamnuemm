@@ -3,7 +3,51 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title id="pageTitle">Adam Nümm – Stimme. Bühne. Charakter.</title>
+
+<!-- ── PERFORMANCE: Font-Verbindung früh aufbauen ── -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+<title id="pageTitle">Adam Nümm – Synchronsprecher &amp; Schauspieler · Stimme. Bühne. Charakter.</title>
+
+<!-- ── SEO / META ── -->
+<meta name="description" content="Adam Nümm – Synchronsprecher &amp; Schauspieler aus Berlin. Deutsche Stimme u. a. in Squid Game, Cobra Kai, Limitless und Days Gone – über 530 Rollen in Film, Serie, Games &amp; Hörbuch. Sprachproben, Showreel &amp; Buchung."/>
+<meta name="author" content="Adam Nümm"/>
+<link rel="canonical" href="https://adamnuemm.de/"/>
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:type" content="profile"/>
+<meta property="og:site_name" content="Adam Nümm"/>
+<meta property="og:title" content="Adam Nümm – Synchronsprecher &amp; Schauspieler"/>
+<meta property="og:description" content="Deutsche Stimme u. a. in Squid Game, Cobra Kai &amp; Days Gone. Über 530 Rollen in Film, Serie, Games &amp; Hörbuch. Sprachproben &amp; Buchung."/>
+<meta property="og:image" content="https://adamnuemm.de/portrait.jpg"/>
+<meta property="og:url" content="https://adamnuemm.de/"/>
+<meta property="og:locale" content="de_DE"/>
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Adam Nümm – Synchronsprecher &amp; Schauspieler"/>
+<meta name="twitter:description" content="Deutsche Stimme u. a. in Squid Game, Cobra Kai &amp; Days Gone. Über 530 Rollen. Sprachproben &amp; Buchung."/>
+<meta name="twitter:image" content="https://adamnuemm.de/portrait.jpg"/>
+
+<!-- Structured Data: Person (Google Rich Results / Knowledge Panel) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Adam Nümm",
+  "url": "https://adamnuemm.de/",
+  "image": "https://adamnuemm.de/portrait.jpg",
+  "jobTitle": ["Synchronsprecher", "Schauspieler", "Sprecher"],
+  "knowsLanguage": ["de", "en"],
+  "sameAs": [
+    "https://de.wikipedia.org/wiki/Adam_N%C3%BCmm",
+    "https://www.anisearch.de/person/43939,adam-nuemm"
+  ]
+}
+</script>
+<!-- TIPP: In "sameAs" oben noch IMDb-, Deutsche-Synchronkartei- und Instagram-/Agentur-Links ergänzen – das stärkt die Entitäts-Erkennung bei Google zusätzlich. -->
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1125,10 +1169,10 @@ footer {
   </div>
 
 </section>
-  <div style="padding: 0 0 0 0;">
+  <!-- ROLLEN / CREDITS -->
+  <section class="credits-section" id="rollen">
     <div class="section-label" data-de="Ausgewählte Credits" data-en="Selected Credits">Ausgewählte Credits</div>
     <h2 class="section-title"><span data-de="Bekannte " data-en="Notable ">Bekannte </span><em data-de="Rollen" data-en="Roles">Rollen</em></h2>
-  </div>
   <div class="credits-grid">
     <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
       <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Blockbuster" data-en="⭐ Dubbing · Blockbuster">⭐ Synchron · Blockbuster</div>
@@ -1767,8 +1811,8 @@ function applyLang() {
   });
   document.documentElement.lang = currentLang;
   document.getElementById('pageTitle').textContent = currentLang === 'de'
-    ? 'Adam Nümm – Stimme. Bühne. Charakter.'
-    : 'Adam Nümm – Voice. Stage. Character.';
+    ? 'Adam Nümm – Synchronsprecher & Schauspieler · Stimme. Bühne. Charakter.'
+    : 'Adam Nümm – Voice Actor & Actor · Voice. Stage. Character.';
 }
 
 if (currentLang === 'en') applyLang();
