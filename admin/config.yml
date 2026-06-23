@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: peterpanonweed/adamnuemm     # <-- falls dein Repo anders heißt, hier anpassen
+  branch: main                       # <-- WICHTIG: muss dein Pages-Branch sein (main / master / gh-pages)
+  base_url: https://sveltia-cms-auth.zeitenwechsel1234.workers.dev   # dein Cloudflare-Login-Dienst
+
+# Hochgeladene Fotos landen im Ordner "news/" und werden als /news/... eingebunden
+media_folder: "news"
+public_folder: "/news"
+
+# Sprache der Oberfläche
+locale: de
+
+collections:
+  - name: "news"
+    label: "News"
+    files:
+      - name: "items"
+        label: "News-Einträge"
+        file: "content/news.json"
+        format: json
+        fields:
+          - name: "items"
+            label: "Einträge"
+            label_singular: "Eintrag"
+            widget: "list"
+            summary: "{{fields.title_de}}"
+            fields:
+              - { name: "date",     label: "Datum (Anzeige)",      widget: "string", hint: "z. B. Juni 2026" }
+              - { name: "image",    label: "Foto",                 widget: "image",  required: false }
+              - { name: "cat_de",   label: "Kategorie (DE)",       widget: "string", hint: "z. B. Synchron · Netflix" }
+              - { name: "cat_en",   label: "Kategorie (EN)",       widget: "string", required: false }
+              - { name: "title_de", label: "Titel (DE)",           widget: "string" }
+              - { name: "title_en", label: "Titel (EN)",           widget: "string", required: false }
+              - { name: "text_de",  label: "Text (DE)",            widget: "text" }
+              - { name: "text_en",  label: "Text (EN)",            widget: "text",   required: false }

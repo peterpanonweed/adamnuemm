@@ -3,7 +3,56 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title id="pageTitle">Adam Nümm – Stimme. Bühne. Charakter.</title>
+
+<!-- ── PERFORMANCE: Font-Verbindung früh aufbauen ── -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+<title id="pageTitle">Adam Nümm – Synchronsprecher &amp; Schauspieler · Stimme. Bühne. Charakter.</title>
+
+<!-- ── SEO / META ── -->
+<meta name="description" content="Adam Nümm – Synchronsprecher &amp; Schauspieler aus Berlin. Deutsche Stimme u. a. in Squid Game, Cobra Kai, Limitless und Days Gone – über 530 Rollen in Film, Serie, Games &amp; Hörbuch. Sprachproben, Showreel &amp; Buchung."/>
+<meta name="author" content="Adam Nümm"/>
+<link rel="canonical" href="https://adamnuemm.de/"/>
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:type" content="profile"/>
+<meta property="og:site_name" content="Adam Nümm"/>
+<meta property="og:title" content="Adam Nümm – Synchronsprecher &amp; Schauspieler"/>
+<meta property="og:description" content="Deutsche Stimme u. a. in Squid Game, Cobra Kai &amp; Days Gone. Über 530 Rollen in Film, Serie, Games &amp; Hörbuch. Sprachproben &amp; Buchung."/>
+<meta property="og:image" content="https://adamnuemm.de/portrait.jpg"/>
+<meta property="og:url" content="https://adamnuemm.de/"/>
+<meta property="og:locale" content="de_DE"/>
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Adam Nümm – Synchronsprecher &amp; Schauspieler"/>
+<meta name="twitter:description" content="Deutsche Stimme u. a. in Squid Game, Cobra Kai &amp; Days Gone. Über 530 Rollen. Sprachproben &amp; Buchung."/>
+<meta name="twitter:image" content="https://adamnuemm.de/portrait.jpg"/>
+
+<!-- Structured Data: Person (Google Rich Results / Knowledge Panel) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Adam Nümm",
+  "url": "https://adamnuemm.de/",
+  "image": "https://adamnuemm.de/portrait.jpg",
+  "jobTitle": ["Synchronsprecher", "Schauspieler", "Sprecher"],
+  "knowsLanguage": ["de", "en"],
+  "sameAs": [
+    "https://de.wikipedia.org/wiki/Adam_N%C3%BCmm",
+    "https://www.anisearch.de/person/43939,adam-nuemm"
+  ]
+}
+</script>
+<!-- TIPP: In "sameAs" oben noch IMDb-, Deutsche-Synchronkartei- und Instagram-/Agentur-Links ergänzen – das stärkt die Entitäts-Erkennung bei Google zusätzlich. -->
+
+<!-- ── FAVICON ── -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -291,6 +340,33 @@ nav {
 }
 .contact-link:hover { border-color: var(--warm); color: var(--warm); }
 
+/* Synchronstar Booking Button */
+.contact-link--synchronstar {
+  background: #1a2e52;
+  border-color: #1a2e52;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 2px 16px rgba(26,46,82,0.4);
+}
+.contact-link--synchronstar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contact-link--synchronstar:hover {
+  background: #243d6e;
+  border-color: #243d6e;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,46,82,0.55);
+}
+
 /* ── VIDEO SECTION ── */
 .video-section { padding: 100px 48px; }
 
@@ -354,6 +430,58 @@ nav {
 }
 .video-title { font-size: 13px; font-weight: 500; color: var(--cream); line-height: 1.4; }
 
+/* ── DIALOGBUCH LIST VIEW ── */
+.dialogbuch-list {
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+}
+.dialogbuch-list.visible { display: flex; }
+
+.dialogbuch-item {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.dialogbuch-item:hover {
+  background: rgba(200,169,110,0.05);
+  border-color: rgba(200,169,110,0.2);
+}
+.dialogbuch-cover {
+  width: 64px; height: 90px;
+  border-radius: 3px; object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.dialogbuch-info { flex: 1; min-width: 0; }
+.dialogbuch-label {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--warm); margin-bottom: 6px;
+}
+.dialogbuch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px; font-weight: 700; color: var(--cream);
+  margin-bottom: 6px; line-height: 1.3;
+}
+.dialogbuch-meta { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.dialogbuch-year {
+  font-size: 12px; color: var(--warm);
+  font-weight: 500; flex-shrink: 0;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .dialogbuch-item { gap: 14px; padding: 16px; }
+  .dialogbuch-cover { width: 52px; height: 74px; }
+  .dialogbuch-title { font-size: 15px; }
+  .dialogbuch-year { display: none; }
+}
+
 /* MODAL */
 .modal-overlay {
   display: none; position: fixed; inset: 0; z-index: 1000;
@@ -385,13 +513,114 @@ footer {
 }
 
 @media (max-width: 768px) {
-  nav, .hero, .section, .credits-section, .contact-section { padding-left: 24px; padding-right: 24px; }
-  .about-section { grid-template-columns: 1fr; padding: 60px 24px; }
-  .credits-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 28px; }
-  .hero-bottom { flex-direction: column; gap: 28px; align-items: flex-start; }
+  /* ── NAV ── */
+  nav { padding: 16px 20px; }
   .nav-links { display: none; }
-  footer { flex-direction: column; gap: 8px; text-align: center; }
+  .nav-logo { font-size: 18px; }
+
+  /* ── HERO ── */
+  .hero { padding: 0 20px 60px; min-height: 100svh; }
+  .hero-tag { font-size: 11px; letter-spacing: 0.12em; margin-bottom: 14px; }
+  .hero-name { font-size: clamp(56px, 18vw, 80px); }
+  .hero-subtitle { font-size: 15px; max-width: 100%; margin-top: 20px; }
+  .hero-bottom { flex-direction: column; gap: 28px; align-items: flex-start; margin-top: 40px; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .stat-num { font-size: 28px; }
+  .hero-cta { width: 100%; flex-direction: column; gap: 12px; align-items: stretch; }
+  .btn-primary { text-align: center; padding: 16px 24px; font-size: 13px; width: 100%; }
+  .btn-ghost { text-align: center; padding: 14px 0; font-size: 13px; width: 100%; border-bottom: 1px solid var(--muted); }
+
+  /* ── SECTIONS ── */
+  nav, .hero, .section, .credits-section, .contact-section, .video-section { padding-left: 20px; padding-right: 20px; }
+  .section { padding-top: 64px; padding-bottom: 64px; }
+  .divider { margin: 0 20px; }
+
+  /* ── AUDIO PLAYERS – mobile card layout ── */
+  .audio-item {
+    display: grid;
+    grid-template-columns: 44px 52px 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 0;
+    padding: 16px;
+    align-items: center;
+  }
+  .audio-item .play-btn {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: center;
+    width: 40px; height: 40px;
+  }
+  .audio-item > img {
+    grid-column: 2 !important;
+    grid-row: 1 / 3 !important;
+    align-self: center;
+    width: 44px !important;
+    height: 44px !important;
+    flex-shrink: 0;
+  }
+  .audio-info {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: end;
+    min-width: 0;
+  }
+  .audio-duration {
+    grid-column: 4;
+    grid-row: 1;
+    align-self: center;
+    font-size: 12px;
+    min-width: 32px;
+    text-align: right;
+  }
+  .waveform {
+    grid-column: 3 / 5;
+    grid-row: 2;
+    height: 28px;
+    margin-top: 8px;
+    flex: none;
+    width: 100%;
+  }
+  .audio-title { font-size: 13px; font-weight: 500; line-height: 1.3; white-space: normal; }
+  .audio-meta { font-size: 11px; line-height: 1.4; white-space: normal; margin-top: 2px; }
+
+  /* ── ABOUT SECTION ── */
+  .about-section { grid-template-columns: 1fr; padding: 60px 20px; gap: 56px; }
+  .about-badge {
+    bottom: -48px;
+    right: 0;
+    padding: 12px 16px;
+  }
+  .about-badge-num { font-size: 22px; }
+  .about-badge-txt { font-size: 10px; }
+  .about-portrait { aspect-ratio: 4/5; }
+
+  /* ── VIDEO SECTION ── */
+  .video-section { padding-top: 64px; padding-bottom: 64px; }
+  .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .filter-bar { gap: 6px; margin-bottom: 28px; }
+  .filter-btn { font-size: 10px; padding: 7px 12px; }
+
+  /* ── CREDITS ── */
+  .credits-section { padding: 64px 20px; }
+  .credits-grid { grid-template-columns: 1fr; }
+  .credit-item { padding: 24px 20px; }
+  .credit-name { font-size: 18px; }
+
+  /* ── CONTACT ── */
+  .contact-section { padding: 80px 20px; }
+  .contact-links { flex-direction: column; align-items: stretch; }
+  .contact-link { justify-content: center; }
+
+  /* ── FOOTER ── */
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px; }
+}
+
+@media (max-width: 400px) {
+  .hero-name { font-size: clamp(48px, 16vw, 64px); }
+  .video-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 16px; }
+  .stat-num { font-size: 24px; }
 }
 </style>
 </head>
@@ -406,6 +635,7 @@ footer {
     <li><a href="#rollen" data-de="Rollen" data-en="Roles">Rollen</a></li>
     <li><a href="#ueber" data-de="Über mich" data-en="About">Über mich</a></li>
     <li><a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+    <li><a href="#" onclick="openNews(); return false;" data-de="News" data-en="News">News<span class="news-dot"></span></a></li>
   </ul>
   <button id="langToggle" onclick="toggleLang()" style="
     background:none; border:1px solid rgba(200,169,110,0.4); color:var(--warm);
@@ -595,16 +825,17 @@ footer {
     <button class="filter-btn" onclick="filterVideos('synchron', this)" data-de="Synchron" data-en="Dubbing">Synchron</button>
     <button class="filter-btn" onclick="filterVideos('hoerbuch', this)" data-de="Hörbuch" data-en="Audiobooks">Hörbuch</button>
     <button class="filter-btn" onclick="filterVideos('games', this)" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</button>
+    <button class="filter-btn" onclick="filterVideos('dialogbuch', this)" data-de="Dialogbuch" data-en="Screenplay">Dialogbuch</button>
   </div>
 
   <div class="video-grid" id="videoGrid">
 
-    <div class="video-card" data-cat="werbung" onclick="openLocalVideo('coca-cola.mp4', 'Coca-Cola – Offen wie nie zuvor')">
+    <div class="video-card" data-cat="werbung" onclick="openLocalVideo('fanta-verrueckt.mp4', 'WhatTheFanta – Voll verrückt')">
       <div class="video-thumb">
-        <img src="thumb-coca-cola.jpg" alt="Coca-Cola" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <img src="thumb-fanta-verrueckt.jpg" alt="WhatTheFanta Voll verrückt" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">Coca-Cola – Offen wie nie zuvor</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">WhatTheFanta – Voll verrückt</div></div>
     </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('happy-hippo.mp4', 'Happy Hippo – Kinder')">
@@ -623,12 +854,12 @@ footer {
       <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">WhatTheFanta – Geschmacksrätsel</div></div>
     </div>
 
-    <div class="video-card" data-cat="werbung" onclick="openLocalVideo('fanta-verrueckt.mp4', 'WhatTheFanta – Voll verrückt')">
+    <div class="video-card" data-cat="werbung" onclick="openLocalVideo('coca-cola.mp4', 'Coca-Cola – Offen wie nie zuvor')">
       <div class="video-thumb">
-        <img src="thumb-fanta-verrueckt.jpg" alt="WhatTheFanta Voll verrückt" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <img src="thumb-coca-cola.jpg" alt="Coca-Cola" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">WhatTheFanta – Voll verrückt</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">Coca-Cola – Offen wie nie zuvor</div></div>
     </div>
 
     <div class="video-card" data-cat="werbung" onclick="openLocalVideo('mayr-bau.mp4', 'Mayr Bau – Echte Kerle bauen echte Häuser')">
@@ -647,17 +878,10 @@ footer {
       <div class="video-meta"><div class="video-cat" data-de="Werbung" data-en="Advertising">Werbung</div><div class="video-title">Veet Men – Perfekt glatte Haut</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('yWsWGg01NNM')">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/yWsWGg01NNM/mqdefault.jpg" alt="Days Gone Interview" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat" data-de="Games &amp; Anderes" data-en="Games &amp; More">Games &amp; Anderes</div><div class="video-title">Days Gone Interview – Deacon St. John</div></div>
-    </div>
-
+    <!-- SYNCHRON -->
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('w9ecP6B9Bb8')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/w9ecP6B9Bb8/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/w9ecP6B9Bb8/mqdefault.jpg" alt="Hugo Silva" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Hugo Silva "Despido Procedente" – Synchronclip</div></div>
@@ -673,7 +897,7 @@ footer {
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('Ju0TibQ_ZtA')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/Ju0TibQ_ZtA/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/Ju0TibQ_ZtA/mqdefault.jpg" alt="Marlon Wayans" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Marlon Wayans – Synchronclip (Netflix)</div></div>
@@ -689,7 +913,7 @@ footer {
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('uFzLz1FGCAg')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/uFzLz1FGCAg/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/uFzLz1FGCAg/mqdefault.jpg" alt="Limitless" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Hauptrolle in LIMITLESS – Synchronclip (Pro 7)</div></div>
@@ -697,7 +921,7 @@ footer {
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('zNtTG5K4Zxg')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/zNtTG5K4Zxg/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/zNtTG5K4Zxg/mqdefault.jpg" alt="Actionszene" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Synchronclip – Actionszene</div></div>
@@ -705,7 +929,7 @@ footer {
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('czTv4kovjgg')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/czTv4kovjgg/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/czTv4kovjgg/mqdefault.jpg" alt="Krypton" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Adam Strange "Krypton" – Synchronclip</div></div>
@@ -721,7 +945,7 @@ footer {
 
     <div class="video-card hidden" data-cat="synchron" onclick="openVideo('muouUvEa7OQ')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/muouUvEa7OQ/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/muouUvEa7OQ/mqdefault.jpg" alt="Serienrolle" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">Synchronclip – Serienrolle</div></div>
@@ -735,9 +959,10 @@ footer {
       <div class="video-meta"><div class="video-cat" data-de="Synchron" data-en="Dubbing">Synchron</div><div class="video-title">The Flash – Todd Lasance</div></div>
     </div>
 
+    <!-- HÖRBUCH -->
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('t64JsXIRx0g')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/t64JsXIRx0g/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/t64JsXIRx0g/mqdefault.jpg" alt="Kuba Deal" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Der Kuba Deal · Nelson DeMille</div></div>
@@ -745,23 +970,15 @@ footer {
 
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('vy9FTMlCW_s')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/vy9FTMlCW_s/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/vy9FTMlCW_s/mqdefault.jpg" alt="Selbstporträt" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Selbstporträt mit Flusspferd</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('786Q-2MrztI'">
-      <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/786Q-2MrztI/mqdefault.jpg" alt="Days Gone Main Cast" loading="lazy"/>
-        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-      </div>
-      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Days Gone – Main Cast</div></div>
-    </div>
-
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('JMI-HEHjw2Q')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/JMI-HEHjw2Q/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/JMI-HEHjw2Q/mqdefault.jpg" alt="Das stille Haus" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Das stille Haus</div></div>
@@ -769,7 +986,7 @@ footer {
 
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('UeVc1CsOg4c')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/UeVc1CsOg4c/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/UeVc1CsOg4c/mqdefault.jpg" alt="Universum egal" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Letztendlich sind wir dem Universum egal</div></div>
@@ -777,7 +994,7 @@ footer {
 
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('4T_prYdYeWw')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/4T_prYdYeWw/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/4T_prYdYeWw/mqdefault.jpg" alt="Schneckenkönig" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Schneckenkönig</div></div>
@@ -785,7 +1002,7 @@ footer {
 
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('DuC9-baXloM')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/DuC9-baXloM/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/DuC9-baXloM/mqdefault.jpg" alt="Kill the Rich" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Kill the Rich</div></div>
@@ -793,7 +1010,7 @@ footer {
 
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('jBpu1AQM15Q')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/jBpu1AQM15Q/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/jBpu1AQM15Q/mqdefault.jpg" alt="Jeti" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Ein Jeti will hoch hinaus</div></div>
@@ -801,7 +1018,7 @@ footer {
 
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('m3VOXPAHs_Y')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/m3VOXPAHs_Y/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/m3VOXPAHs_Y/mqdefault.jpg" alt="Willkommen Realität" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Willkommen Realität</div></div>
@@ -809,15 +1026,56 @@ footer {
 
     <div class="video-card hidden" data-cat="hoerbuch" onclick="openVideo('CUb7h08XRO0')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/CUb7h08XRO0/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="https://img.youtube.com/vi/CUb7h08XRO0/mqdefault.jpg" alt="Sherlock Holmes" loading="lazy"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Hörbuch" data-en="Audiobook">Hörbuch</div><div class="video-title">Sherlock Holmes Chronicles</div></div>
     </div>
 
+    <!-- GAMES -->
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('yWsWGg01NNM')">
+      <div class="video-thumb">
+        <img src="thumb-interview.png" alt="Days Gone Interview" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games &amp; Anderes" data-en="Games &amp; More">Games &amp; Anderes</div><div class="video-title">Days Gone Interview – Deacon St. John</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('786Q-2MrztI'">
+      <div class="video-thumb">
+        <img src="thumb-daysgone.png" alt="Days Gone Main Cast" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Days Gone – Main Cast</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('2V5XaGtllZE')">
+      <div class="video-thumb">
+        <img src="thumb-odyssee.png" alt="Assassin's Creed Odyssey – Pausanias" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Assassin's Creed Odyssey – Pausanias – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('scFehRYAm1g')">
+      <div class="video-thumb">
+        <img src="thumb-legostarwars.png" alt="Lego Star Wars – Anakin Skywalker" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Lego Star Wars – Anakin Skywalker – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('JwYYkaDTPCE')">
+      <div class="video-thumb">
+        <img src="thumb-masseffect.png" alt="Mass Effect Andromeda" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Mass Effect Andromeda – Game-Synchronisation</div></div>
+    </div>
+
     <div class="video-card hidden" data-cat="games" onclick="openVideo('V3kGASsFqQI')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/V3kGASsFqQI/mqdefault.jpg" alt="Zelda Hyrule Warriors" loading="lazy"/>
+        <img src="thumb-hyrule.png" alt="Zelda Hyrule Warriors" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">ZELDA – Hyrule Warriors – Game-Synchronisation</div></div>
@@ -841,27 +1099,86 @@ footer {
 
     <div class="video-card hidden" data-cat="games" onclick="openVideo('KPP_zey__WU')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/KPP_zey__WU/mqdefault.jpg" alt="Forza Horizon 3" loading="lazy"/>
+        <img src="thumb-forza3.png" alt="Forza Horizon 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Forza Horizon 3 – Radiostation Host – Game-Synchronisation</div></div>
     </div>
 
-    <div class="video-card hidden" data-cat="games" onclick="openVideo('umaa1C7uvaY')">
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('6mIX-rl_q_w')">
       <div class="video-thumb">
-        <img src="https://img.youtube.com/vi/umaa1C7uvaY/mqdefault.jpg" alt="Video" loading="lazy"/>
+        <img src="thumb-fc6.png" alt="Far Cry 6" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Kinofilm – Hauptrolle</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Far Cry 6 – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('tE8mxXK5bgw')">
+      <div class="video-thumb">
+        <img src="thumb-drakensang.png" alt="Drakensang – Das Schwarze Auge" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Drakensang – Das Schwarze Auge – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('5dPPn8G3n6E')">
+      <div class="video-thumb">
+        <img src="thumb-aoe4.png" alt="Age of Empires IV" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">Age of Empires IV – Game-Synchronisation</div></div>
+    </div>
+
+    <div class="video-card hidden" data-cat="games" onclick="openVideo('umaa1C7uvaY')">
+      <div class="video-thumb">
+        <img src="thumb-yae.png" alt="You Are Everything – Kinofilm Hauptrolle" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      </div>
+      <div class="video-meta"><div class="video-cat" data-de="Games & Anderes" data-en="Games & More">Games & Anderes</div><div class="video-title">You Are Everything – Kinofilm Hauptrolle</div></div>
     </div>
 
   </div>
+
+  <!-- DIALOGBUCH LISTE -->
+  <div class="dialogbuch-list" id="dialogbuchList">
+
+    <div class="dialogbuch-item">
+      <img src="thumb-letraducteurs.png" alt="Das Rätsel" class="dialogbuch-cover"/>
+      <div class="dialogbuch-info">
+        <div class="dialogbuch-label">Dialogbuch</div>
+        <div class="dialogbuch-title">Das Rätsel <em style="font-size:13px;color:var(--muted);font-style:normal;">(Les Traducteurs)</em></div>
+        <div class="dialogbuch-meta">Regie: Régis Roinsard<br>mit Lambert Wilson, Olga Kurylenko, Riccardo Scamarcio</div>
+      </div>
+      <div class="dialogbuch-year">2019</div>
+    </div>
+
+    <div class="dialogbuch-item">
+      <img src="thumb-across.png" alt="Across the River and Into the Trees" class="dialogbuch-cover"/>
+      <div class="dialogbuch-info">
+        <div class="dialogbuch-label">Dialogbuch</div>
+        <div class="dialogbuch-title">Across the River &amp; Into the Trees</div>
+        <div class="dialogbuch-meta">Regie: Paula Ortiz<br>mit Josh Hutcherson, Liev Schreiber, Matilda De Angelis</div>
+      </div>
+      <div class="dialogbuch-year">2024</div>
+    </div>
+
+    <div class="dialogbuch-item">
+      <img src="thumb-hunted.png" alt="The Hunted" class="dialogbuch-cover"/>
+      <div class="dialogbuch-info">
+        <div class="dialogbuch-label">Dialogbuch</div>
+        <div class="dialogbuch-title">The Hunted</div>
+        <div class="dialogbuch-meta">Regie: Louis Lagayette<br>mit Lily Banda, Alec Newman, Mylène Jampanoï</div>
+      </div>
+      <div class="dialogbuch-year">2023</div>
+    </div>
+
+  </div>
+
 </section>
-<section class="credits-section" id="rollen">
-  <div style="padding: 0 0 0 0;">
+  <!-- ROLLEN / CREDITS -->
+  <section class="credits-section" id="rollen">
     <div class="section-label" data-de="Ausgewählte Credits" data-en="Selected Credits">Ausgewählte Credits</div>
     <h2 class="section-title"><span data-de="Bekannte " data-en="Notable ">Bekannte </span><em data-de="Rollen" data-en="Roles">Rollen</em></h2>
-  </div>
   <div class="credits-grid">
     <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
       <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Blockbuster" data-en="⭐ Dubbing · Blockbuster">⭐ Synchron · Blockbuster</div>
@@ -869,9 +1186,9 @@ footer {
       <div class="credit-show"><span data-de="Staffel 2 · Netflix · als Spieler 343 · Hyun-joong Kang" data-en="Season 2 · Netflix · as Player 343 · Hyun-joong Kang">Staffel 2 · Netflix · als Spieler 343 · Hyun-joong Kang</span></div>
     </div>
     <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
-      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Netflix Hauptrolle" data-en="⭐ Dubbing · Netflix Lead Role">⭐ Synchron · Netflix Hauptrolle</div>
-      <div class="credit-name">Eine Nacht im Kindergarten</div>
-      <div class="credit-show"><span data-de="Netflix Original · 2022 · Hauptrolle Eryk · Piotr Witkowski" data-en="Netflix Original · 2022 · Lead Role Eryk · Piotr Witkowski">Netflix Original · 2022 · Hauptrolle Eryk · Piotr Witkowski</span></div>
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Games · PlayStation Exclusive" data-en="⭐ Games · PlayStation Exclusive">⭐ Games · PlayStation Exclusive</div>
+      <div class="credit-name">Days Gone</div>
+      <div class="credit-show"><span data-de="PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John" data-en="PlayStation Exclusive · 2019 · Lead Role as Deacon St. John">PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John</span></div>
     </div>
     <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
       <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Blockbuster" data-en="⭐ Dubbing · Blockbuster">⭐ Synchron · Blockbuster</div>
@@ -885,9 +1202,14 @@ footer {
     </div>
 
     <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
-      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Games · PlayStation Exclusive" data-en="⭐ Games · PlayStation Exclusive">⭐ Games · PlayStation Exclusive</div>
-      <div class="credit-name">Days Gone</div>
-      <div class="credit-show"><span data-de="PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John" data-en="PlayStation Exclusive · 2019 · Lead Role as Deacon St. John">PlayStation Exclusive · 2019 · Hauptrolle als Deacon St. John</span></div>
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Netflix Hauptrolle" data-en="⭐ Dubbing · Netflix Lead Role">⭐ Synchron · Netflix Hauptrolle</div>
+      <div class="credit-name">Eine Nacht im Kindergarten</div>
+      <div class="credit-show"><span data-de="Netflix Original · 2022 · Hauptrolle Eryk · Piotr Witkowski" data-en="Netflix Original · 2022 · Lead Role Eryk · Piotr Witkowski">Netflix Original · 2022 · Hauptrolle Eryk · Piotr Witkowski</span></div>
+    </div>
+    <div class="credit-item" style="border: 1px solid rgba(200,169,110,0.4); background: rgba(200,169,110,0.05);">
+      <div class="credit-role" style="color:var(--warm2);" data-de="⭐ Synchron · Netflix Hauptrolle" data-en="⭐ Dubbing · Netflix Lead Role">⭐ Synchron · Netflix Hauptrolle</div>
+      <div class="credit-name">Naked</div>
+      <div class="credit-show"><span data-de="Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans" data-en="Netflix · 2017 · Lead Role Rob Anderson · Marlon Wayans">Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans</span></div>
     </div>
     <div class="credit-item">
       <div class="credit-role" data-de="Synchron · Serie" data-en="Dubbing · Series">Synchron · Serie</div>
@@ -934,11 +1256,7 @@ footer {
       <div class="credit-name">Cobra Kai</div>
       <div class="credit-show"><span data-de="2018–2025 · als Daniel LaRusso · Ralph Macchio" data-en="2018–2025 · as Daniel LaRusso · Ralph Macchio">2018–2025 · als Daniel LaRusso · Ralph Macchio</span></div>
     </div>
-    <div class="credit-item">
-      <div class="credit-role" data-de="Synchron · Netflix · Hauptrolle" data-en="Dubbing · Netflix · Lead Role">Synchron · Netflix · Hauptrolle</div>
-      <div class="credit-name">Naked</div>
-      <div class="credit-show"><span data-de="Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans" data-en="Netflix · 2017 · Lead Role Rob Anderson · Marlon Wayans">Netflix · 2017 · Hauptrolle Rob Anderson · Marlon Wayans</span></div>
-    </div>
+
     <div class="credit-item">
       <div class="credit-role" data-de="Synchron · Kinofilm" data-en="Dubbing · Feature Film">Synchron · Kinofilm</div>
       <div class="credit-name">Chappie</div>
@@ -988,8 +1306,8 @@ footer {
     <div class="section-label" data-de="Über mich" data-en="About Me">Über mich</div>
     <h2 class="section-title"><span data-de="Stimme mit " data-en="A Voice with ">Stimme mit </span><em data-de="Geschichte" data-en="History">Geschichte</em></h2>
     <div class="about-body">
-      <p><span data-de="Aufgewachsen in Bergisch Gladbach, ausgebildet an den renommiertesten Theaterschulen Europas" data-en="Raised in Bergisch Gladbach, trained at some of Europe's most prestigious theatre schools">Aufgewachsen in Bergisch Gladbach, ausgebildet an den renommiertesten Theaterschulen Europas</span> – der <span class="highlight">Scuola Teatro Dimitri</span> in der Schweiz, der <span class="highlight">Bayerischen Theaterakademie August Everding</span> und der <span class="highlight">Universität der Künste Berlin</span>.</p>
-      <p><span data-de="Auf der Bühne stand ich u.a. an der" data-en="On stage I have performed at">Auf der Bühne stand ich u.a. an der</span> <span class="highlight">Berliner Schaubühne</span>, dem <span class="highlight">Deutschen Theater Berlin</span> und dem <span class="highlight">Schauspielhaus Zürich</span>. <span data-de="Als Sprecher bewege ich mich zwischen Synchron, Hörbuch, Feature und Werbung – immer auf der Suche nach dem echten Moment." data-en="As a voice artist I work across dubbing, audiobooks, radio drama and advertising – always searching for the authentic moment.">Als Sprecher bewege ich mich zwischen Synchron, Hörbuch, Feature und Werbung – immer auf der Suche nach dem echten Moment.</span></p>
+      <p><span data-de="Aufgewachsen in Bergisch Gladbach, ausgebildet an den renommiertesten Theaterschulen Europas" data-en="Raised in Bergisch Gladbach, trained at some of Europe's most prestigious theatre schools">Aufgewachsen in Bergisch Gladbach, ausgebildet an den renommiertesten Theaterschulen Europas</span> – <span data-de="der " data-en="">der </span><span class="highlight">Scuola Teatro Dimitri</span><span data-de=" in der Schweiz, der " data-en=" in Switzerland, ""> in der Schweiz, der </span><span class="highlight">Bayerischen Theaterakademie August Everding</span><span data-de=" und der " data-en=" and "> und der </span><span class="highlight">Universität der Künste Berlin</span>.</p>
+      <p><span data-de="Auf der Bühne stand ich u.a. an der" data-en="On stage I have performed at">Auf der Bühne stand ich u.a. an der</span> <span class="highlight">Berliner Schaubühne</span><span data-de=", dem " data-en=", ">, dem </span><span class="highlight">Deutschen Theater Berlin</span><span data-de=" und dem " data-en=" and "> und dem </span><span class="highlight">Schauspielhaus Zürich</span>. <span data-de="Als Sprecher bewege ich mich zwischen Synchron, Hörbuch, Feature und Werbung – immer auf der Suche nach dem echten Moment." data-en="As a voice artist I work across dubbing, audiobooks, radio drama and advertising – always searching for the authentic moment.">Als Sprecher bewege ich mich zwischen Synchron, Hörbuch, Feature und Werbung – immer auf der Suche nach dem echten Moment.</span></p>
       <p><span data-de="Ich lebe und arbeite in" data-en="I live and work in">Ich lebe und arbeite in</span> <span class="highlight">Berlin-Neukölln</span>.</p>
     </div>
     <div style="margin: 2rem 0;">
@@ -1029,6 +1347,7 @@ footer {
       <span class="skill-tag">Anime</span>
       <span class="skill-tag" data-de="Bühne" data-en="Stage">Bühne</span>
       <span class="skill-tag" data-de="Dialekte" data-en="Dialects">Dialekte</span>
+      <span class="skill-tag" data-de="Dialogbuch" data-en="Dialogue Book">Dialogbuch</span>
     </div>
   </div>
 </section>
@@ -1044,6 +1363,12 @@ footer {
     <a href="tel:+491774475849" class="contact-link">
       📞 +49 177 447 58 49
     </a>
+    <a href="https://www.synchronstar.de/intern/detail/adam-nuemm/4512" target="_blank" class="contact-link contact-link--synchronstar" data-de="Booking via synchronstar.de" data-en="Booking via synchronstar.de">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+      </svg>
+      Booking via synchronstar.de
+    </a>
     <a href="mailto:mail@adamnuemm.de" class="contact-link">
       ✉ mail@adamnuemm.de
     </a>
@@ -1057,7 +1382,49 @@ footer {
 <footer>
   <span>© 2026 Adam Nümm · Berlin</span>
   <span>Schauspieler & Synchronsprecher</span>
+  <a href="admin/" aria-label="Redaktion" title="Redaktion" style="margin-left:8px;color:rgba(245,240,232,0.12);text-decoration:none;font-size:13px;transition:color .25s;" onmouseover="this.style.color='var(--warm)'" onmouseout="this.style.color='rgba(245,240,232,0.12)'">·</a>
 </footer>
+
+<!-- ══════════ NEWS-POPUP ══════════ -->
+<style>
+.news-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--warm);margin-left:5px;vertical-align:middle;animation:newsPulse 2s ease-in-out infinite;}
+@keyframes newsPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.8);}}
+
+.news-overlay{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(10,9,7,.8);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;}
+.news-overlay.open{opacity:1;visibility:visible;}
+.news-modal{width:100%;max-width:540px;max-height:82vh;display:flex;flex-direction:column;background:#211e19;border:1px solid rgba(200,169,110,.28);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);transform:translateY(14px) scale(.985);transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+.news-overlay.open .news-modal{transform:translateY(0) scale(1);}
+.news-head{display:flex;align-items:flex-start;justify-content:space-between;padding:24px 26px 18px;border-bottom:1px solid rgba(200,169,110,.16);}
+.news-head .label{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--warm);}
+.news-head h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--cream);margin-top:4px;line-height:1.1;}
+.news-close{background:none;border:none;cursor:pointer;color:rgba(245,240,232,.6);font-size:30px;line-height:1;padding:0 0 0 16px;transition:color .2s,transform .25s;}
+.news-close:hover{color:#e8c98e;transform:rotate(90deg);}
+.news-body{overflow-y:auto;padding:6px 26px 24px;}
+.news-body::-webkit-scrollbar{width:8px;}
+.news-body::-webkit-scrollbar-thumb{background:rgba(200,169,110,.3);border-radius:4px;}
+.news-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(245,240,232,.08);}
+.news-item:last-child{border-bottom:none;}
+.news-thumb{flex:0 0 84px;width:84px;height:84px;border-radius:10px;object-fit:cover;background:linear-gradient(135deg,#2c2822,#1a1814);}
+.news-meta{display:flex;gap:10px;align-items:center;margin-bottom:5px;flex-wrap:wrap;}
+.news-cat{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--warm);}
+.news-date{font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(245,240,232,.4);}
+.news-item h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);line-height:1.25;margin-bottom:5px;}
+.news-item p{font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.55;color:rgba(245,240,232,.66);}
+@media (max-width:440px){.news-item{flex-direction:column;}.news-thumb{width:100%;height:150px;flex-basis:auto;}.news-head h3{font-size:22px;}}
+</style>
+
+<div class="news-overlay" id="newsOverlay" role="dialog" aria-modal="true" aria-label="Aktuelles">
+  <div class="news-modal">
+    <div class="news-head">
+      <div>
+        <div class="label" data-de="Aktuelles" data-en="Latest">Aktuelles</div>
+        <h3 data-de="News" data-en="News">News</h3>
+      </div>
+      <button class="news-close" onclick="closeNews()" aria-label="Schließen">&times;</button>
+    </div>
+    <div class="news-body" id="newsBody"></div>
+  </div>
+</div>
 
 <script>
 // ── SOUNDWAVE BACKGROUND ──
@@ -1200,13 +1567,24 @@ function togglePlay(item) {
 function filterVideos(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.video-card').forEach(card => {
-    if (cat === 'all' || card.dataset.cat === cat) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
-    }
-  });
+
+  const grid = document.getElementById('videoGrid');
+  const list = document.getElementById('dialogbuchList');
+
+  if (cat === 'dialogbuch') {
+    grid.style.display = 'none';
+    list.classList.add('visible');
+  } else {
+    grid.style.display = '';
+    list.classList.remove('visible');
+    document.querySelectorAll('.video-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
 }
 
 // ── VIDEO MODAL ──
@@ -1481,11 +1859,61 @@ function applyLang() {
   });
   document.documentElement.lang = currentLang;
   document.getElementById('pageTitle').textContent = currentLang === 'de'
-    ? 'Adam Nümm – Stimme. Bühne. Charakter.'
-    : 'Adam Nümm – Voice. Stage. Character.';
+    ? 'Adam Nümm – Synchronsprecher & Schauspieler · Stimme. Bühne. Charakter.'
+    : 'Adam Nümm – Voice Actor & Actor · Voice. Stage. Character.';
 }
 
 if (currentLang === 'en') applyLang();
+
+/* ══════════ NEWS-POPUP ══════════ */
+/* News werden über das CMS (/admin) gepflegt und aus content/news.json geladen. */
+let NEWS = [];
+
+async function loadNews(){
+  try{
+    const res = await fetch('content/news.json', { cache:'no-store' });
+    const data = await res.json();
+    NEWS = (data.items || []).map(n => ({
+      date:  n.date  || "",
+      img:   n.image || "",
+      cat:   { de: n.cat_de   || "", en: n.cat_en   || n.cat_de   || "" },
+      title: { de: n.title_de || "", en: n.title_en || n.title_de || "" },
+      text:  { de: n.text_de  || "", en: n.text_en  || n.text_de  || "" }
+    }));
+  }catch(e){ NEWS = []; }
+}
+
+function renderNews(){
+  const body = document.getElementById('newsBody');
+  if(!body) return;
+  body.innerHTML = NEWS.map(n => `
+    <div class="news-item">
+      <img class="news-thumb" src="${n.img}" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div>
+        <div class="news-meta">
+          <span class="news-cat" data-de="${n.cat.de}" data-en="${n.cat.en}">${n.cat[currentLang]||n.cat.de}</span>
+          <span class="news-date">${n.date}</span>
+        </div>
+        <h4 data-de="${n.title.de}" data-en="${n.title.en}">${n.title[currentLang]||n.title.de}</h4>
+        <p data-de="${n.text.de}" data-en="${n.text.en}">${n.text[currentLang]||n.text.de}</p>
+      </div>
+    </div>`).join('');
+}
+async function openNews(){ if(!NEWS.length) await loadNews(); renderNews(); document.getElementById('newsOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeNews(){ document.getElementById('newsOverlay').classList.remove('open'); document.body.style.overflow=''; }
+
+document.getElementById('newsOverlay').addEventListener('click', e => { if(e.target.id==='newsOverlay') closeNews(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeNews(); });
+
+/* News laden, dann beim ersten Aufruf pro Sitzung sanft automatisch öffnen */
+loadNews().then(() => {
+  let shown=false;
+  try{ shown = sessionStorage.getItem('newsShown')==='1'; }catch(e){}
+  if(!shown && NEWS.length){
+    setTimeout(openNews, 900);
+    try{ sessionStorage.setItem('newsShown','1'); }catch(e){}
+  }
+});
 
 </script>
 </body>

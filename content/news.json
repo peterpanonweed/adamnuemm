@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "date": "Juni 2026",
+      "image": "/news/netflix.jpg",
+      "cat_de": "Synchron · Netflix",
+      "cat_en": "Dubbing · Netflix",
+      "title_de": "Neue Netflix-Produktion (Titel folgt)",
+      "title_en": "New Netflix production (title TBA)",
+      "text_de": "Frisch aus dem Studio: deutsche Synchronarbeit für eine aktuelle Netflix-Produktion. Mehr in Kürze.",
+      "text_en": "Fresh from the studio: German dubbing for a current Netflix production. More soon."
+    },
+    {
+      "date": "Juni 2026",
+      "image": "/news/daniels.jpg",
+      "cat_de": "Synchron · Sport",
+      "cat_en": "Dubbing · Sports",
+      "title_de": "Deutsche Stimme: Jayden Daniels",
+      "title_en": "German voice: Jayden Daniels",
+      "text_de": "Im Studio als deutsche Synchronstimme von NFL-Shootingstar Jayden Daniels (Washington Commanders).",
+      "text_en": "In the studio as the German voice of NFL rising star Jayden Daniels (Washington Commanders)."
+    }
+  ]
+}
