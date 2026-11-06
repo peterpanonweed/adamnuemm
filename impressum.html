@@ -16,18 +16,18 @@
 <link rel="icon" href="favicon-32.png" sizes="32x32"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 
 <style>
 :root {
-  --ink:    #1a1814;
-  --ink2:   #2e2b26;
-  --cream:  #f5f0e8;
-  --cream2: #ede8df;
-  --warm:   #c8a96e;
-  --warm2:  #e8c98e;
-  --muted:  #8a8070;
-  --text:   #3a3530;
+  --ink:    #f1efe9;
+  --ink2:   #e4e1d8;
+  --cream:  #121212;
+  --cream2: #1e1e1e;
+  --warm:   #e0301e;
+  --warm2:  #ff4a36;
+  --muted:  #6b6a66;
+  --text:   #2a2a2a;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,7 +35,7 @@
 body {
   background: var(--ink);
   color: var(--cream);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--fb);
   font-weight: 300;
   line-height: 1.7;
   overflow-x: hidden;
@@ -44,7 +44,7 @@ body {
 /* ── KOPFZEILE ── */
 .top {
   padding: 24px 48px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
   display: flex; align-items: center; justify-content: space-between;
   font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
 }
@@ -53,7 +53,7 @@ body {
 }
 .top a:hover { color: var(--warm); }
 .top .name {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--fh);
   font-size: 15px; letter-spacing: .04em; text-transform: none;
   color: var(--cream);
 }
@@ -66,7 +66,7 @@ main {
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--fh);
   font-weight: 400;
   font-size: clamp(32px, 6vw, 46px);
   letter-spacing: .01em;
@@ -82,7 +82,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--fh);
   font-weight: 400;
   font-size: 21px;
   color: var(--warm);
@@ -98,7 +98,7 @@ a:hover { color: var(--warm2); text-decoration: underline; }
 
 .divider {
   height: 1px;
-  background: rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.07);
   margin: 56px 0 0;
 }
 
@@ -110,7 +110,7 @@ a:hover { color: var(--warm2); text-decoration: underline; }
 /* ── FUSSZEILE ── */
 footer {
   padding: 32px 48px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(0,0,0,0.06);
   display: flex; justify-content: space-between; align-items: center;
   font-size: 12px; color: var(--muted);
   flex-wrap: wrap; gap: 12px;
@@ -126,6 +126,22 @@ footer a:hover { color: var(--warm); text-decoration: none; }
 </style>
 
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5a4a8ff8d9c1442e86024cda79b01d46"}'></script><!-- End Cloudflare Web Analytics -->
+
+<style id="look-a">
+:root{--fh:'Archivo', sans-serif;--fb:'IBM Plex Sans', sans-serif;--fm:'IBM Plex Mono', monospace;}
+.hero-tag,.section-label,.credit-role,.news-cat,.news-date,.stat-label,.video-cat,.nav-links a{font-family:var(--fm)!important;}
+.stat-num{white-space:nowrap;}
+.hero-bottom{gap:32px;flex-wrap:wrap;}
+
+.hero-name,.section-title,h2,h3,.credit-name,.nav-logo{font-stretch:112%;font-weight:850;letter-spacing:-0.035em;}
+.hero-name{text-transform:uppercase;line-height:.86;}
+.hero-name em{font-style:normal;color:var(--warm);}
+body::before{display:none;}
+.hero-tag::before{content:'● ';color:var(--warm);animation:rec 1.2s steps(2) infinite;}
+@keyframes rec{50%{opacity:.15}}
+.btn-primary,.filter-btn,.contact-link{border-radius:0!important;}
+
+</style>
 </head>
 <body>
 

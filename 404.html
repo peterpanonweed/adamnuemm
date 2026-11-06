@@ -8,27 +8,43 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root{ --ink:#1a1814; --cream:#f5f0e8; --warm:#c8a96e; --muted:rgba(245,240,232,.55); }
+  :root{ --ink:#f1efe9; --cream:#121212; --warm:#e0301e; --muted:rgba(18,18,18,.55); }
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{height:100%;}
-  body{background:var(--ink);color:var(--cream);font-family:'DM Sans',-apple-system,Segoe UI,Roboto,sans-serif;
+  body{background:var(--ink);color:var(--cream);font-family:var(--fb),-apple-system,Segoe UI,Roboto,sans-serif;
        display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;line-height:1.6;}
   .wrap{max-width:520px;}
   .label{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--warm);margin-bottom:18px;}
-  h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(40px,9vw,68px);line-height:1;margin-bottom:18px;}
+  h1{font-family:var(--fh);font-weight:700;font-size:clamp(40px,9vw,68px);line-height:1;margin-bottom:18px;}
   h1 em{font-style:italic;color:var(--warm);}
   p{color:var(--muted);font-size:16px;margin-bottom:30px;}
   a.btn{display:inline-block;font-size:14px;letter-spacing:.06em;text-decoration:none;color:var(--ink);
         background:var(--warm);padding:13px 28px;border-radius:8px;transition:filter .2s;}
   a.btn:hover{filter:brightness(1.08);}
   .sub{margin-top:22px;font-size:13px;color:var(--muted);}
-  .sub a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(200,169,110,.4);}
+  .sub a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(224,48,30,.4);}
   .sub a:hover{color:var(--warm);}
 </style>
 
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5a4a8ff8d9c1442e86024cda79b01d46"}'></script><!-- End Cloudflare Web Analytics -->
+
+<style id="look-a">
+:root{--fh:'Archivo', sans-serif;--fb:'IBM Plex Sans', sans-serif;--fm:'IBM Plex Mono', monospace;}
+.hero-tag,.section-label,.credit-role,.news-cat,.news-date,.stat-label,.video-cat,.nav-links a{font-family:var(--fm)!important;}
+.stat-num{white-space:nowrap;}
+.hero-bottom{gap:32px;flex-wrap:wrap;}
+
+.hero-name,.section-title,h2,h3,.credit-name,.nav-logo{font-stretch:112%;font-weight:850;letter-spacing:-0.035em;}
+.hero-name{text-transform:uppercase;line-height:.86;}
+.hero-name em{font-style:normal;color:var(--warm);}
+body::before{display:none;}
+.hero-tag::before{content:'● ';color:var(--warm);animation:rec 1.2s steps(2) infinite;}
+@keyframes rec{50%{opacity:.15}}
+.btn-primary,.filter-btn,.contact-link{border-radius:0!important;}
+
+</style>
 </head>
 <body>
   <div class="wrap">

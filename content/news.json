@@ -1,14 +1,88 @@
 {
   "items": [
     {
+      "date": "Dezember 2026",
+      "image": "/news/lost-boys.jpg",
+      "cat_de": "ARD · Doku",
+      "cat_en": "ARD · Documentary",
+      "title_de": "Lost Boys – Der Fall US5",
+      "title_en": "Lost Boys – The US5 Story",
+      "text_de": "Für die ARD-Doku über die Boyband US5 habe ich das Voice-Over für Izzy Gallegos gesprochen. Premiere am 1. Dezember im Cinema Paris, Berlin – ab 2. Dezember in der ARD Mediathek.",
+      "text_en": "For the ARD documentary about the boy band US5 I voiced Izzy Gallegos. Premiere on 1 December at Cinema Paris, Berlin – streaming in the ARD Mediathek from 2 December."
+    },
+    {
+      "date": "Herbst 2026",
+      "image": "/news/unholy-night.jpg",
+      "cat_de": "Kino · Hauptrolle",
+      "cat_en": "Feature Film · Lead",
+      "title_de": "Unholy Night – Hauptrolle Gino",
+      "title_en": "Unholy Night – Lead Role Gino",
+      "text_de": "Hauptrolle in der Horrorkomödie „Unholy Night“: Ich spreche Gino (Marc Bendavid), dessen italienische Familienweihnacht im Chaos versinkt – mit untoten Verwandten. Lief beim Fantasy Filmfest 2026.",
+      "text_en": "Lead role in the horror comedy “Unholy Night”: I voice Gino (Marc Bendavid), whose Italian family Christmas descends into chaos – undead relatives included. Screened at Fantasy Filmfest 2026.",
+      "lauf_de": "Unholy Night",
+      "lauf_en": "Unholy Night"
+    },
+    {
+      "date": "Herbst 2026",
+      "image": "/news/cottonmouth.jpg",
+      "cat_de": "Western · Synchron",
+      "cat_en": "Western · Dubbing",
+      "title_de": "Cottonmouth",
+      "title_en": "Cottonmouth",
+      "text_de": "Ein Western mit Wucht: In „Cottonmouth“ leihe ich Martin Sensmeier als Ed meine Stimme.",
+      "text_en": "A western with real punch: in “Cottonmouth” I am the German voice of Martin Sensmeier as Ed.",
+      "lauf_cat_de": "Western · Synchron-Hauptrolle",
+      "lauf_cat_en": "Western · Lead Dubbing"
+    },
+    {
+      "date": "November 2026",
+      "image": "/news/off-doku.jpg",
+      "cat_de": "Neu auf der Seite",
+      "cat_en": "New on the site",
+      "title_de": "Neue Rubrik: Off / Doku",
+      "title_en": "New section: Voice-over / Docs",
+      "text_de": "Neu in der Videogalerie: Ausschnitte meiner Doku-Arbeit – Terra X (ZDF), arte und Netflix, u. a. Gustave Eiffel, Sobibor und Untold: Raygun.",
+      "text_en": "New in the video gallery: clips from my documentary work – Terra X (ZDF), arte and Netflix, including Gustave Eiffel, Sobibor and Untold: Raygun."
+    },
+    {
+      "date": "Herbst 2026",
+      "image": "/news/franz-marc.jpg",
+      "cat_de": "Doku · Erzähler",
+      "cat_en": "Documentary · Narrator",
+      "title_de": "Franz Marc. Zwischen den Welten",
+      "title_en": "Franz Marc. Between Worlds",
+      "text_de": "Kommentar für die Dokumentation über den Maler des Blauen Reiters (VIVE la DOK). Sendetermin folgt. Bild: Franz Marc, „Blauschwarzer Fuchs“ (1911).",
+      "text_en": "Narration for the documentary about the Blue Rider painter (VIVE la DOK). Air date to follow. Image: Franz Marc, “Blue-Black Fox” (1911)."
+    },
+    {
+      "date": "November 2026",
+      "image": "/news/eva-kino.jpg",
+      "cat_de": "Kino · Synchron",
+      "cat_en": "Feature Film · Dubbing",
+      "title_de": "Neuer Kinofilm bei EVA Studios",
+      "title_en": "New feature film at EVA Studios",
+      "text_de": "Frisch aus dem Studio: Synchronarbeit für einen neuen Kinofilm bei EVA Studios Germany. Titel folgt zum Kinostart.",
+      "text_en": "Fresh from the studio: dubbing for a new feature film at EVA Studios Germany. Title to be announced at release."
+    },
+    {
+      "date": "Herbst 2026",
+      "image": "/news/im-studio.jpg",
+      "cat_de": "Synchron · Serien",
+      "cat_en": "Dubbing · Series",
+      "title_de": "Außerdem am Mikro",
+      "title_en": "Also at the mic",
+      "text_de": "In den letzten Wochen außerdem im Studio: „Mayor of Kingstown“ (Studio Hamburg) und „Law & Order Toronto“ (Arena Synchron).",
+      "text_en": "Also in the studio recently: “Mayor of Kingstown” (Studio Hamburg) and “Law & Order Toronto” (Arena Synchron)."
+    },
+    {
       "date": "Sommer 2026",
       "image": "/news/Ransom Canyon - KIT RUSSELL.jpg",
       "cat_de": "Synchron · Netflix",
       "cat_en": "Dubbing · Netflix",
-      "title_de": "Netflix-Produktion Main Cast - Dubbing",
-      "title_en": "New Netflix production (Ransom Canyon Season 2)",
-      "text_de": "Frisch aus dem Studio: deutsche Synchronarbeit für eine aktuelle Netflix-Produktion. Mehr in Kürze.",
-      "text_en": "Fresh from the studio: German dubbing for a current Netflix production. More soon."
+      "title_de": "Ransom Canyon – Staffel 2 (Netflix) · Main Cast",
+      "title_en": "Ransom Canyon – Season 2 (Netflix) · Main Cast",
+      "text_de": "Frisch aus dem Studio: deutsche Synchronarbeit im Main Cast von „Ransom Canyon“, Staffel 2 (Netflix).",
+      "text_en": "Fresh from the studio: German dubbing in the main cast of “Ransom Canyon”, Season 2 (Netflix)."
     },
     {
       "date": "Sommer 2026",
@@ -23,12 +97,12 @@
     {
       "date": "Sommer 2026",
       "image": "/news/pasted-image-1782248135797.png",
-      "cat_de": "Game Dubbing",
-      "cat_en": "Game Dubbing",
-      "title_de": "Game Dubbing",
-      "title_en": "Game Dubbing",
-      "text_de": "GlobaLoc GmBh (genaueres in Kürze)",
-      "text_en": "GlobaLoc GmBh (details coming soon)"
+      "cat_de": "Games · Synchron",
+      "cat_en": "Games · Dubbing",
+      "title_de": "Fortnite – Endboss im DLC",
+      "title_en": "Fortnite – Final Boss in a DLC",
+      "text_de": "Für GlobaLoc im Studio: Ich spreche einen Endboss in einem Fortnite-DLC.",
+      "text_en": "In the studio for GlobaLoc: I voice a final boss in a Fortnite DLC."
     },
     {
       "date": "Frühling 2026",
