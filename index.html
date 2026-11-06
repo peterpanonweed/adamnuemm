@@ -700,7 +700,19 @@ body::before{display:none;}
 @keyframes onairLauf{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.onair-band{animation:none}}
 @media (max-width:600px){.onair-tag{padding:11px 12px;font-size:10px}.onair-band span{font-size:11px;padding:0 18px}}
-</style></head>
+</style><style id='mobil-kopf'>
+.hero-tag span + span::before{content:' · '}
+/* Handy: Berufszeile unter dem Namen in drei Zeilen (Vorschlag B), Zahlen im 2x2-Raster, Laufband klebt oben */
+@media (max-width:600px){
+  .hero{padding-top:96px!important;min-height:auto!important;display:flex;flex-direction:column;}
+  .hero-stats{display:grid!important;grid-template-columns:1fr 1fr;gap:18px 24px!important;}
+  .hero-stats > div:last-child{grid-column:1 / -1;}
+  .hero-name{order:1}.hero-tag{order:2;margin:18px 0 0!important;font-size:12px!important;letter-spacing:.16em!important;line-height:1.75!important;}
+  .hero-tag span{display:block}
+  .hero-tag span + span::before{content:none}
+  .hero-subtitle{order:3}.hero-bottom{order:4}
+  .onair{position:sticky;top:62px;z-index:95;box-shadow:0 6px 16px rgba(0,0,0,.08);}
+}</style></head>
 <body>
 
 <!-- NAV -->
@@ -931,30 +943,30 @@ body::before{display:none;}
       <div class="video-thumb">
         <img src="doku-raygun.jpg" alt="Untold: Raygun" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <span class="doku-badge netflix">NETFLIX</span>
-        <span class="doku-rec" data-de="Off-Stimme" data-en="Voice-over">Off-Stimme</span>
+        <span class="doku-rec" data-de="Overvoice" data-en="Voice-over">Overvoice</span>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat" data-de="Off-Stimme · Doku" data-en="Voice-over · Documentary">Off-Stimme · Doku</div><div class="video-title">Untold: Raygun</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Overvoice · Doku" data-en="Voice-over · Documentary">Overvoice · Doku</div><div class="video-title">Untold: Raygun</div></div>
     </div>
 
     <div class="video-card doku-card" data-cat="doku" onclick="openDoku(2)">
       <div class="video-thumb">
         <img src="doku-sobibor.jpg" alt="Sobibor – Anatomie eines Vernichtungslagers" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <span class="doku-badge arte">arte</span>
-        <span class="doku-rec" data-de="Overvoice" data-en="Voice-over">Overvoice</span>
+        <span class="doku-rec" data-de="Off-Stimme" data-en="Voice-over">Off-Stimme</span>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat" data-de="Overvoice · Zeitzeuge Toivi Blatt" data-en="Voice-over · Witness Toivi Blatt">Overvoice · Zeitzeuge Toivi Blatt</div><div class="video-title">Sobibor – Anatomie eines Vernichtungslagers</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Off-Stimme · Zeitzeuge Toivi Blatt" data-en="Voice-over · Witness Toivi Blatt">Off-Stimme · Zeitzeuge Toivi Blatt</div><div class="video-title">Sobibor – Anatomie eines Vernichtungslagers</div></div>
     </div>
 
     <div class="video-card doku-card" data-cat="doku" onclick="openDoku(3)">
       <div class="video-thumb">
         <img src="doku-quarterback.jpg" alt="Quarterback – Staffel 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
         <span class="doku-badge netflix">NETFLIX</span>
-        <span class="doku-rec" data-de="Off-Stimme" data-en="Voice-over">Off-Stimme</span>
+        <span class="doku-rec" data-de="Overvoice" data-en="Voice-over">Overvoice</span>
         <div class="video-play-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
-      <div class="video-meta"><div class="video-cat" data-de="Off-Stimme · Jayden Daniels" data-en="Voice-over · Jayden Daniels">Off-Stimme · Jayden Daniels</div><div class="video-title">Quarterback – Staffel 3</div></div>
+      <div class="video-meta"><div class="video-cat" data-de="Overvoice · Jayden Daniels" data-en="Voice-over · Jayden Daniels">Overvoice · Jayden Daniels</div><div class="video-title">Quarterback – Staffel 3</div></div>
     </div>
 
     <div class="video-card doku-card" data-cat="doku" onclick="openDoku(4)">
@@ -2060,7 +2072,7 @@ loadNews().then(() => {
 </script>
 
 <script>
-const DOKU_OV = [{"datei": "doku-eiffel.mp4", "thumb": "doku-eiffel.jpg", "sender": "ZDF", "tag_de": "Off-Stimme", "tag_en": "Voice-over", "art_de": "Off-Stimme · Terra X", "art_en": "Voice-over · Terra X", "titel": "Gustave Eiffel – Der Mann, der den Eiffelturm erfand", "ov_logo": "", "ov_kopf": "Terra X", "ov_sender": "ZDF", "ov_zeile_de": "Off-Stimme", "ov_zeile_en": "Voice-over"}, {"datei": "doku-raygun.mp4", "thumb": "doku-raygun.jpg", "sender": "NETFLIX", "tag_de": "Off-Stimme", "tag_en": "Voice-over", "art_de": "Off-Stimme · Doku", "art_en": "Voice-over · Documentary", "titel": "Untold: Raygun", "ov_logo": "logo-netflix.svg", "ov_kopf": "", "ov_zeile_de": "Off-Stimme", "ov_zeile_en": "Voice-over"}, {"datei": "doku-sobibor.mp4", "thumb": "doku-sobibor.jpg", "sender": "arte", "tag_de": "Overvoice", "tag_en": "Voice-over", "art_de": "Overvoice · Zeitzeuge Toivi Blatt", "art_en": "Voice-over · Witness Toivi Blatt", "titel": "Sobibor – Anatomie eines Vernichtungslagers", "ov_logo": "logo-arte.svg", "ov_kopf": "Doku", "ov_zeile_de": "Zeitzeuge Toivi Blatt", "ov_zeile_en": "Witness Toivi Blatt"}, {"datei": "doku-quarterback.mp4", "thumb": "doku-quarterback.jpg", "sender": "NETFLIX", "tag_de": "Off-Stimme", "tag_en": "Voice-over", "art_de": "Off-Stimme · Jayden Daniels", "art_en": "Voice-over · Jayden Daniels", "titel": "Quarterback – Staffel 3", "ov_logo": "logo-netflix.svg", "ov_kopf": "", "ov_zeile_de": "Off-Stimme · Jayden Daniels", "ov_zeile_en": "Voice-over · Jayden Daniels"}, {"datei": "doku-babylon-prag.mp4", "thumb": "doku-babylon-prag.jpg", "sender": "arte", "tag_de": "Deutsch auf Deutsch", "tag_en": "German on German", "art_de": "Synchron · Deutsch auf Deutsch", "art_en": "Dubbing · German on German", "titel": "Babylon Prag", "ov_logo": "logo-arte.svg", "ov_kopf": "Doku", "ov_zeile_de": "Deutsch auf Deutsch", "ov_zeile_en": "German on German"}];
+const DOKU_OV = [{"datei": "doku-eiffel.mp4", "thumb": "doku-eiffel.jpg", "sender": "ZDF", "tag_de": "Off-Stimme", "tag_en": "Voice-over", "art_de": "Off-Stimme · Terra X", "art_en": "Voice-over · Terra X", "titel": "Gustave Eiffel – Der Mann, der den Eiffelturm erfand", "ov_logo": "", "ov_kopf": "Terra X", "ov_sender": "ZDF", "ov_zeile_de": "Off-Stimme", "ov_zeile_en": "Voice-over"}, {"datei": "doku-raygun.mp4", "thumb": "doku-raygun.jpg", "sender": "NETFLIX", "tag_de": "Overvoice", "tag_en": "Voice-over", "art_de": "Overvoice · Doku", "art_en": "Voice-over · Documentary", "titel": "Untold: Raygun", "ov_logo": "logo-netflix.svg", "ov_kopf": "", "ov_zeile_de": "Overvoice", "ov_zeile_en": "Voice-over"}, {"datei": "doku-sobibor.mp4", "thumb": "doku-sobibor.jpg", "sender": "arte", "tag_de": "Off-Stimme", "tag_en": "Voice-over", "art_de": "Off-Stimme · Zeitzeuge Toivi Blatt", "art_en": "Voice-over · Witness Toivi Blatt", "titel": "Sobibor – Anatomie eines Vernichtungslagers", "ov_logo": "logo-arte.svg", "ov_kopf": "Doku", "ov_zeile_de": "Off-Stimme · Zeitzeuge Toivi Blatt", "ov_zeile_en": "Witness Toivi Blatt"}, {"datei": "doku-quarterback.mp4", "thumb": "doku-quarterback.jpg", "sender": "NETFLIX", "tag_de": "Overvoice", "tag_en": "Voice-over", "art_de": "Overvoice · Jayden Daniels", "art_en": "Voice-over · Jayden Daniels", "titel": "Quarterback – Staffel 3", "ov_logo": "logo-netflix.svg", "ov_kopf": "", "ov_zeile_de": "Overvoice · Jayden Daniels", "ov_zeile_en": "Voice-over · Jayden Daniels"}, {"datei": "doku-babylon-prag.mp4", "thumb": "doku-babylon-prag.jpg", "sender": "arte", "tag_de": "Deutsch auf Deutsch", "tag_en": "German on German", "art_de": "Synchron · Deutsch auf Deutsch", "art_en": "Dubbing · German on German", "titel": "Babylon Prag", "ov_logo": "logo-arte.svg", "ov_kopf": "Doku", "ov_zeile_de": "Deutsch auf Deutsch", "ov_zeile_en": "German on German"}];
 function openDoku(i){
   const d = DOKU_OV[i];
   openLocalVideo(d.datei, d.titel);
@@ -2129,5 +2141,13 @@ async function fuelleLaufband(){
 (async function(){ if(!NEWS.length) await loadNews(); fuelleLaufband(); })();
 (function(){ const alt = toggleLang; toggleLang = function(){ alt(); fuelleLaufband(); }; })();
 </script>
-</body>
+
+<script>
+/* Handy: Berufszeile in drei Zeilen aufteilen (auch nach Sprachwechsel) */
+(function(){
+  const t = document.querySelector('.hero-tag'); if(!t) return;
+  const teile = () => { if (!matchMedia('(max-width:600px)').matches) return; const s = t.textContent.split(' · '); t.innerHTML = s.map(x => '<span>' + x + '</span>').join(''); };
+  teile(); const alt = toggleLang; toggleLang = function(){ alt(); teile(); };
+})();
+</script></body>
 </html>
